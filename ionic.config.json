@@ -1,0 +1,7 @@
+{
+  "name": "Corleones",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}
