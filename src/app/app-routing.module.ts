@@ -33,6 +33,10 @@ const routes: Routes = [
   {
     path: 'Productos',
     loadChildren: () => import('./tab1/tab1.module').then( m => m.Tab1PageModule)
+  },
+  {
+    path: 'carrito',
+    loadChildren: () => import('./carrito/carrito.module').then( m => m.CarritoPageModule)
   }
 ];
 @NgModule({
