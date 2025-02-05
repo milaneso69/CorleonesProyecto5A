@@ -23,7 +23,15 @@ const routes: Routes = [
     loadChildren: () => import('./citas/citas.module').then( m => m.CitasPageModule)
   },
   {
-    path: 'tab1',
+    path: 'Perfil',
+    loadChildren: () => import('./tab1/tab1.module').then( m => m.Tab1PageModule)
+  },
+  {
+    path: 'Servicios',
+    loadChildren: () => import('./tab1/tab1.module').then( m => m.Tab1PageModule)
+  },
+  {
+    path: 'Productos',
     loadChildren: () => import('./tab1/tab1.module').then( m => m.Tab1PageModule)
   }
 ];
