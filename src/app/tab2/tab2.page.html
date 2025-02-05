@@ -1,17 +1,58 @@
 <ion-header [translucent]="true">
   <ion-toolbar>
+    
     <ion-title>
-      Productos
+     <ion-icon routerLink = "/tabs" name="arrow-back-circle-outline" size = "large"></ion-icon> Servicios
     </ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content [fullscreen]="true">
   <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">Productos</ion-title>
+    <ion-toolbar mode = "ios">
+      <ion-icon routerLink = "/Perfil" name="arrow-back-circle-outline" size = "large"></ion-icon>
+      <ion-title>Servicios</ion-title>
     </ion-toolbar>
   </ion-header>
-
-  <app-explore-container name="Productos"></app-explore-container>
+  <ion-card>
+    
+    <ion-card-header>
+      <ion-card-title>Cabello</ion-card-title>
+      <ion-card-subtitle>Cortes de cabello que se manejan</ion-card-subtitle>
+    </ion-card-header>
+    <ion-card-content>
+      <ion-list>
+        <ion-card-content>
+        <ion-item>
+          <ion-thumbnail slot="start">
+            <img alt="Silhouette of mountains" src="https://ionicframework.com/docs/img/demos/thumbnail.svg" />
+          </ion-thumbnail>
+          <ion-label>Mullet</ion-label>
+        </ion-item>
+        <ion-label>peinado audaz caracterizado por llevar el cabello corto en la parte superior y los lados, mientras permanece largo en la parte trasera.</ion-label>
+      </ion-card-content>
+        <ion-item>
+          <ion-thumbnail slot="start">
+            <img alt="Silhouette of mountains" src="https://ionicframework.com/docs/img/demos/thumbnail.svg" />
+          </ion-thumbnail>
+          <ion-label>Barba</ion-label>
+        </ion-item>
+  
+        <ion-item>
+          <ion-thumbnail slot="start">
+            <img alt="Silhouette of mountains" src="https://ionicframework.com/docs/img/demos/thumbnail.svg" />
+          </ion-thumbnail>
+          <ion-label>Item</ion-label>
+        </ion-item>
+  
+        <ion-item lines="none">
+          <ion-thumbnail slot="start">
+            <img alt="Silhouette of mountains" src="https://ionicframework.com/docs/img/demos/thumbnail.svg" />
+          </ion-thumbnail>
+          <ion-label>Item</ion-label>
+        </ion-item>
+      </ion-list>
+      <ion-button routerLink="/citas" shape="cita">Agendar Cita</ion-button>
+    </ion-card-content>
+  </ion-card>
 </ion-content>
