@@ -10,7 +10,11 @@
       <ion-title size="large">citas</ion-title>
     </ion-toolbar>
   </ion-header>
-  <ion-button id="open-loading">Guardar datos</ion-button>
-  <ion-loading trigger="open-loading" message="Loading..." [duration]="3000" spinner="circles"></ion-loading>
-  <ion-button routerLink="/tabs" shape="regresar">Regresar</ion-button>
+  <ion-datetime></ion-datetime>
+  <div>
+    <ion-button id="open-loading">Guardar datos</ion-button>
+    <ion-loading trigger="open-loading" message="Loading..." [duration]="3000" spinner="circles"></ion-loading>
+    <ion-button routerLink="/tabs" shape="regresar">Regresar</ion-button>
+    
+  </div>
 </ion-content>
