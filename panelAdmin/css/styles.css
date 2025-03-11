@@ -22,12 +22,12 @@ li {
     --blue: #ff0000; /* Rojo */
     --light-blue: #ffffff; /* Azul claro CFE8FF */
     --grey: #171718; /* Gris oscuro */
-    --dark-grey: #AAAAAA; /* Gris medio */
+    --dark-grey: #AAAAAA; /* Gris medio */      
     --dark: #FBFBFB; /* Texto blanco */
     --red: #DB504A; /* Rojo */
     --yellow: #FFCE26; /* Amarillo */
     --light-yellow: #FFF2C6; /* Amarillo claro */
-    --orange: #FD7238; /* Naranja */
+    --orange: #850c0c; /* Naranja */
     --light-orange: #FFE0D3; /* Naranja claro */
     --dorado: #FFD700; /* Dorado */
     --light-dorado: #FFECB3; /* Dorado claro */
@@ -370,7 +370,7 @@ button {
 }
 
 button:hover {
-    background-color: var(--light-blue); /* Fondo azul claro al pasar el mouse */
+    background-color: var(--orange); /* Fondo azul claro al pasar el mouse */
 }
 
 #btnAgregar {
@@ -385,7 +385,8 @@ button:hover {
 }
 
 #btnAgregar:hover {
-    background-color: var(--light-blue); /* Fondo azul claro al pasar el mouse */
+    background-color: var(--orange); /* Fondo azul claro al pasar el mouse */
+    
 }
 
 .table-container {
@@ -503,7 +504,7 @@ tr:hover {
 }
 
 .modal-contenido button[type="submit"]:hover {
-    background-color: var(--light-blue); /* Fondo azul claro al pasar el mouse */
+    background-color: var(--orange); /* Fondo azul claro al pasar el mouse */
 }
 
 /* Modal de confirmación */
