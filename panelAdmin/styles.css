@@ -474,6 +474,12 @@ tr:hover {
 }
 
 .modal-contenido input[type="text"],
+.modal-contenido input[type="number"],
+.modal-contenido input[type="date"],
+.modal-contenido input[type="time"],
+.modal-contenido input[type="password"],
+ .modal-contenido input[type="radio"],
+ .modal-contenido input[type="checkbox"],
 .modal-contenido input[type="email"] {
     width: 100%;
     padding: 8px;

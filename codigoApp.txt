@@ -9,8 +9,8 @@ const modalTitulo = document.getElementById('modalTitulo');
 const cerrarModal = document.getElementsByClassName('cerrar')[0];
 const formUsuario = document.getElementById('formUsuario');
 const usuarioIdInput = document.getElementById('usuarioId');
-const correoInput = document.getElementById('correo');
-const contraseniaInput = document.getElementById('contrasenia');
+const nombreInput = document.getElementById('nombre');
+const emailInput = document.getElementById('email');
 
 const modalConfirmacion = document.getElementById('modalConfirmacion');
 const btnConfirmarEliminar = document.getElementById('btnConfirmarEliminar');
@@ -30,14 +30,14 @@ async function obtenerUsuarios() {
             const fila = document.createElement('tr');
 
             // Guardamos el ID en un atributo de la fila (para usarlo luego)
-            fila.setAttribute('data-id', usuario.idusuario);
+            fila.setAttribute('data-id', usuario.id);
 
             // Creamos las celdas (sin el ID)
-            const celdaCorreo = document.createElement('td');
-            celdaCorreo.textContent = usuario.correo;
+            const celdaNombre = document.createElement('td');
+            celdaNombre.textContent = usuario.name;
 
-            const celdaFechaCreacion = document.createElement('td');
-            celdaFechaCreacion.textContent = new Date(usuario.created_at).toLocaleDateString();
+            const celdaEmail = document.createElement('td');
+            celdaEmail.textContent = usuario.email;
 
             const celdaAcciones = document.createElement('td');
 
@@ -51,15 +51,15 @@ async function obtenerUsuarios() {
             const btnEliminar = document.createElement('button');
             btnEliminar.innerHTML = `<i class='bx bx-trash'></i>`; // Ícono de eliminar
             btnEliminar.classList.add('btn-eliminar'); // Clase para estilos
-            btnEliminar.addEventListener('click', () => confirmarEliminar(usuario.idusuario));
+            btnEliminar.addEventListener('click', () => confirmarEliminar(usuario.id));
 
             // Agregamos los botones a la celda de acciones
             celdaAcciones.appendChild(btnEditar);
             celdaAcciones.appendChild(btnEliminar);
 
             // Agregamos las celdas a la fila (sin el ID)
-            fila.appendChild(celdaCorreo);
-            fila.appendChild(celdaFechaCreacion);
+            fila.appendChild(celdaNombre);
+            fila.appendChild(celdaEmail);
             fila.appendChild(celdaAcciones);
 
             // Agregamos la fila a la tabla
@@ -99,13 +99,13 @@ formUsuario.addEventListener('submit', async (event) => {
 
     // Obtenemos los valores de los campos
     const id = usuarioIdInput.value;
-    const correo = correoInput.value;
-    const contrasenia = contraseniaInput.value;
+    const nombre = nombreInput.value;
+    const email = emailInput.value;
 
     // Creamos un objeto con los datos
     const usuario = {
-        correo: correo,
-        contrasenia: contrasenia
+        name: nombre,
+        email: email
     };
 
     try {
@@ -147,9 +147,9 @@ function abrirModalEditar(usuario) {
     modalTitulo.textContent = 'Editar Usuario';
 
     // Rellenamos los campos con los datos del usuario
-    usuarioIdInput.value = usuario.idusuario;
-    correoInput.value = usuario.correo;
-    contraseniaInput.value = ''; // No mostramos la contraseña por seguridad
+    usuarioIdInput.value = usuario.id;
+    nombreInput.value = usuario.name;
+    emailInput.value = usuario.email;
 }
 
 // Manejo de la eliminación de usuarios

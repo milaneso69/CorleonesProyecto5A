@@ -43,8 +43,8 @@
             <table>
                 <thead>
                     <tr>    
-                        <th>Nombre</th>
-                        <th>Email</th>
+                        <th>Correo</th>
+                        <th>Fecha de Creación</th>
                         <th>Acciones</th>
                     </tr>
                 </thead>            
@@ -61,12 +61,12 @@
                 <h2 id="modalTitulo">Agregar Usuario</h2>
                 <form id="formUsuario">
                     <input type="hidden" id="usuarioId">
-                    <label for="nombre">Nombre:</label>
-                    <input type="text" id="nombre" required minlength="6" maxlength="50" placeholder="Ingrese el nombre">
-                    <span id="nombreError" class="error-message"></span>
-                    <label for="email">Email:</label>
-                    <input type="email" id="email" required placeholder="Ingrese el email">
-                    <span id="emailError" class="error-message"></span>
+                    <label for="correo">Correo:</label>
+                    <input type="email" id="correo" required placeholder="Ingrese el correo">
+                    <span id="correoError" class="error-message"></span>
+                    <label for="contrasenia">Contraseña:</label>
+                    <input type="password" id="contrasenia" required placeholder="Ingrese la contraseña">
+                    <span id="contraseniaError" class="error-message"></span>
                     <button type="submit"><i class='bx bx-save'></i> Guardar</button>
                 </form>
             </div>
