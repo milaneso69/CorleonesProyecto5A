@@ -9,75 +9,20 @@
     <title>Corleones-Barbershop</title>
 </head>
 <body>
-	
-    <section id="sidebar">
-        <div class="brand">
-            <img src="/img/corleonesss-blanco.png" alt="Logo" class="logo">
-        </div>
-        <ul class="side-menu top">
-            <li>
-				<a href="/panelAdmin/panelInicio.html">
-					<i class='bx bx-home'></i> 
-					<span class="text">Inicio</span>
-				</a>
-            <li class="active">
-                <a href="#">
-                    <i class='/panelAdmin/panelUsuarios'></i>
-                    <i class='bx bx-user'></i>
-                    <span class="text">Usuarios</span>
-                </a>
-            </li>
-            <li>
-                <a href="#">
-                    <i class='bx bx-id-card'></i>
-                    <span class="text">Clientes</span>
-                </a>
-            </li>
-            <li>
-                <a href="#">
-                    <i class='bx bx-package'></i>
-                    <span class="text">Productos</span>
-                </a>
-            </li>
-            <li>
-                <a href="#">
-                    <i class='bx bx-cut'></i>
-                    <span class="text">Servicios</span>
-                </a>
-            </li>
-            <li>
-                <a href="#">
-                    <i class='bx bx-calendar-check'></i>
-                    <span class="text">Citas</span>
-                </a>
-            </li>
-        </ul>
-        <ul class="side-menu">
-            <li>
-                <a href="#">
-                    <i class='bx bx-cog'></i>
-                    <span class="text">Ajustes</span>
-                </a>
-            </li>
-            <li>
-                <a href="#" class="logout">
-                    <i class='bx bx-log-out'></i>
-                    <span class="text">Log-out</span>
-                </a>
-            </li>
-        </ul>
-    </section>
 
+    <script src="menu.js"></script>
+    <script src="script.js"></script>
+
+    <!-- El resto del código se mantiene igual -->
     <section id="content">
         <nav>
-			<i class='bx bx-menu'></i> <!-- Ícono del menú -->
+			<i class='bx bx-menu'></i>
 			<form action="#">
 				<div class="form-input">
 					<input type="search" placeholder="Buscar">
 					<button type="submit" class="search-btn"><i class='bx bx-search'></i></button>
 				</div>
 			</form>
-			<!-- Logo en la barra de navegación -->
 			<div class="navbar-logo">
 				<img src="/img/corleonesss-blanco.png" alt="Logo" class="logo">
 			</div>
@@ -90,7 +35,7 @@
 			</a>
 		</nav>
 
-        <!-- Gestión de Usuarios --> <h1>Lista de Usuarios</h1>
+        <h1>Lista de Usuarios</h1>
         <button id="btnAgregar" class="btnAgregar">
             <i class='bx bx-user-plus'></i> Agregar Usuario
         </button>
@@ -117,9 +62,11 @@
                 <form id="formUsuario">
                     <input type="hidden" id="usuarioId">
                     <label for="nombre">Nombre:</label>
-                    <input type="text" id="nombre" required>
+                    <input type="text" id="nombre" required minlength="6" maxlength="50" placeholder="Ingrese el nombre">
+                    <span id="nombreError" class="error-message"></span>
                     <label for="email">Email:</label>
-                    <input type="email" id="email" required>
+                    <input type="email" id="email" required placeholder="Ingrese el email">
+                    <span id="emailError" class="error-message"></span>
                     <button type="submit"><i class='bx bx-save'></i> Guardar</button>
                 </form>
             </div>
@@ -135,7 +82,7 @@
         </div>
     </section>
 
-    <script src="script.js"></script>
+    
     <script src="app.js"></script>
 </body>
 </html>
