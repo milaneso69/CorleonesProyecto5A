@@ -76,13 +76,13 @@ document.addEventListener("DOMContentLoaded", function () {
     document.body.insertAdjacentHTML("afterbegin", sidebar);
 
     // Marcar la página activa
-    const currentPage = window.location.pathname.split("/").pop(); // Obtener la página actual
+    const currentPage = window.location.pathname.split("/").pop();
     const menuLinks = document.querySelectorAll("#sidebar .side-menu.top li a");
 
     menuLinks.forEach(link => {
-        const linkPage = link.getAttribute("href").split("/").pop(); // Obtener la página del enlace
+        const linkPage = link.getAttribute("href").split("/").pop();
         if (linkPage === currentPage) {
-            link.parentElement.classList.add("active"); // Aplicar la clase "active"
+            link.parentElement.classList.add("active");
         }
     });
 
