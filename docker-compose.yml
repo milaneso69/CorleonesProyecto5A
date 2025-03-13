@@ -1,0 +1,38 @@
+version: '3.8'
+
+services:
+  postgres:
+    image: "postgres:16"
+    container_name: postgresProyectoIntegrador
+    environment:
+      - POSTGRES_USER=postgres
+      - POSTGRES_DB=postgres_proyecto
+      - POSTGRES_PASSWORD=zmc001139
+    ports:
+      - "5432:5432"
+    networks:
+      - apiproyecto_default
+    volumes:
+      - ./db-init:/docker-entrypoint-initdb.d
+
+  api_proyecto_integrador:
+    build: .
+    container_name: ApiProyectoIntegrador
+    ports:
+      - "3000:3000"
+    restart: always
+    environment:
+      - NODE_ENV=production
+      - DB_HOST=localhost
+      - DB_PORT=5432
+      - DB_USER=postgres
+      - DB_PASSWORD=zmc001139
+      - DB_NAME=bdbarberiaapis
+    networks:
+      - apiproyecto_default
+    depends_on:
+      - postgres
+
+networks:
+  apiproyecto_default:
+    driver: bridge
