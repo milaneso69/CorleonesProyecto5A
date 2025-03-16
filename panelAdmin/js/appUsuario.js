@@ -1,5 +1,6 @@
 // URL de la API
-const apiURL = 'https://jsonplaceholder.typicode.com/users';
+const apiURL = 'http://192.168.1.7:3000/api/users';
+
 
 // Elementos del DOM
 const tablaUsuarios = document.getElementById('tablaUsuarios');
@@ -104,8 +105,8 @@ formUsuario.addEventListener('submit', async (event) => {
 
     // Creamos un objeto con los datos
     const usuario = {
-        correo: correo,
-        contrasenia: contrasenia
+        Correo: correo,
+        Contrasenia: contrasenia
     };
 
     try {
@@ -122,6 +123,7 @@ formUsuario.addEventListener('submit', async (event) => {
             console.log('Usuario actualizado:', usuarioActualizado);
         } else {
             // Si no hay ID, creamos un nuevo usuario (POST)
+            console.log(usuario);
             const respuesta = await fetch(apiURL, {
                 method: 'POST',
                 headers: {
