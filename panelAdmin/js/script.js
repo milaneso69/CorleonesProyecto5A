@@ -1,7 +1,7 @@
 // script.js
 document.addEventListener("menuLoaded", function () {
     // TOGGLE SIDEBAR
-    const menuBar = document.querySelector('#content nav .bx.bx-menu');
+    const menuBar = document.querySelector('#content nav .bx.bx-chevron-left');
     const sidebar = document.getElementById('sidebar');
 
     // Recuperar el estado de la barra lateral desde localStorage

@@ -84,8 +84,8 @@ body {
 /* Estilos para el logo en la barra de navegación */
 .navbar-logo {
     display: none; /* Oculta el logo por defecto */
-    margin: 0 auto; /* Centra el logo horizontalmente */
-    margin-right: 550px; /* Mueve el logo un poco a la izquierda */
+  /*  margin: 0 a; */ /* Centra el logo horizontalmente */
+    margin-left:auto; /* Mueve el logo un poco a la izquierda */
 }
 
 .navbar-logo .logo {
@@ -262,7 +262,7 @@ body {
     color: var(--dark); /* Color blanco para los íconos */
 }
 
-#content nav .bx.bx-menu {
+#content nav .bx.bx-chevron-left {
     cursor: pointer;
     color: var(--dark); /* Texto blanco */
 }
