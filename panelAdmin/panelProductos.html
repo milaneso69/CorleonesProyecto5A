@@ -5,73 +5,23 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <!-- Boxicons -->
     <link href='https://unpkg.com/boxicons@2.0.9/css/boxicons.min.css' rel='stylesheet'>
-    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="css/styles.css">
     <title>Corleones-Barbershop</title>
 </head>
 <body>
-	
-    <section id="sidebar">
-        <div class="brand">
-            <img src="/img/corleonesss-blanco.png" alt="Logo" class="logo">
-        </div>
-        <ul class="side-menu top">
-            <li class="active">
-                <a href="#">
-                    <i class='bx bx-user'></i>
-                    <span class="text">Usuarios</span>
-                </a>
-            </li>
-            <li>
-                <a href="#">
-                    <i class='bx bx-id-card'></i>
-                    <span class="text">Clientes</span>
-                </a>
-            </li>
-            <li>
-                <a href="#">
-                    <i class='bx bx-package'></i>
-                    <span class="text">Productos</span>
-                </a>
-            </li>
-            <li>
-                <a href="#">
-                    <i class='bx bx-cut'></i>
-                    <span class="text">Servicios</span>
-                </a>
-            </li>
-            <li>
-                <a href="#">
-                    <i class='bx bx-calendar-check'></i>
-                    <span class="text">Citas</span>
-                </a>
-            </li>
-        </ul>
-        <ul class="side-menu">
-            <li>
-                <a href="#">
-                    <i class='bx bx-cog'></i>
-                    <span class="text">Ajustes</span>
-                </a>
-            </li>
-            <li>
-                <a href="#" class="logout">
-                    <i class='bx bx-log-out'></i>
-                    <span class="text">Log-out</span>
-                </a>
-            </li>
-        </ul>
-    </section>
+
+    <script src="js/menu.js"></script>
+    <script src="js/script.js"></script>
 
     <section id="content">
         <nav>
-			<i class='bx bx-menu'></i> <!-- Ícono del menú -->
+			<i class='bx bx-chevron-left'></i>
 			<form action="#">
 				<div class="form-input">
 					<input type="search" placeholder="Buscar">
 					<button type="submit" class="search-btn"><i class='bx bx-search'></i></button>
 				</div>
 			</form>
-			<!-- Logo en la barra de navegación -->
 			<div class="navbar-logo">
 				<img src="/img/corleonesss-blanco.png" alt="Logo" class="logo">
 			</div>
@@ -80,57 +30,63 @@
 				<span class="num">!</span>
 			</a>
 			<a href="#" class="profile">
-				<img src="img/people.png" alt="Perfil">
+				<img src="/img/user.png" alt="Perfil">
 			</a>
 		</nav>
 
-        <!-- Gestión de Usuarios --> <h1>Lista de Usuarios</h1>
+        <h1>Lista de Productos</h1>
         <button id="btnAgregar" class="btnAgregar">
-            <i class='bx bx-user-plus'></i> Agregar Usuario
+            <i class='bx bx-plus'></i> Agregar Producto
         </button>
         <div class="table-container">
             <table>
                 <thead>
-                    <tr>
-                        <th>ID</th>
+                    <tr>    
                         <th>Nombre</th>
-                        <th>Email</th>
+                        <th>Precio</th>
+                        <th>Descripción</th>
+                        <th>Stock</th>
+                        <th>Fecha de Creación</th>
+                        <th>Fecha de Modificación</th>
                         <th>Acciones</th>
                     </tr>
-                </thead>
-                <tbody id="tablaUsuarios">
-                    <!-- Aquí se insertarán las filas de usuarios -->
+                </thead>            
+                <tbody id="tablaProductos">
+                    <!-- Aquí se insertarán las filas de productos -->
                 </tbody>
             </table>
         </div>
 
-        <!-- Modal para agregar/editar usuario -->
+        <!-- Modal para agregar/editar producto -->
         <div id="modal" class="modal">
             <div class="modal-contenido">
                 <span class="cerrar">&times;</span>
-                <h2 id="modalTitulo">Agregar Usuario</h2>
-                <form id="formUsuario">
-                    <input type="hidden" id="usuarioId">
+                <h2 id="modalTitulo">Agregar Producto</h2>
+                <form id="formProducto">
+                    <input type="hidden" id="productoId">
                     <label for="nombre">Nombre:</label>
-                    <input type="text" id="nombre" required>
-                    <label for="email">Email:</label>
-                    <input type="email" id="email" required>
+                    <input type="text" id="nombre" required placeholder="Ingrese el nombre">
+                    <label for="precio">Precio:</label>
+                    <input type="number" id="precio" required placeholder="Ingrese el precio">
+                    <label for="descripcion">Descripción:</label>
+                    <textarea id="descripcion" placeholder="Ingrese la descripción" required></textarea>
+                    <label for="stock">STOCK:</label>
+                    <input type="number" id="stock" required placeholder="Ingrese el stock">
                     <button type="submit"><i class='bx bx-save'></i> Guardar</button>
                 </form>
             </div>
         </div>
 
-        <!-- Confirmación para eliminar usuario -->
+        <!-- Confirmación para eliminar producto -->
         <div id="modalConfirmacion" class="modal">
             <div class="modal-contenido">
-                <p>¿Quieres eliminar este usuario?</p>
+                <p>¿Quieres eliminar este producto?</p>
                 <button id="btnConfirmarEliminar" class="btnEliminar"><i class='bx bx-trash'></i> Eliminar</button>
                 <button id="btnCancelarEliminar">Cancelar</button>
             </div>
         </div>
     </section>
 
-    <script src="script.js"></script>
-    <script src="app.js"></script>
+    <script src="js/appProductos.js"></script>
 </body>
 </html>
