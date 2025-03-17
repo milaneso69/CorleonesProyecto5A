@@ -476,6 +476,8 @@ tr:hover {
 
 .modal-contenido input[type="text"],
 .modal-contenido input[type="number"],
+.modal-contenido input[type="tel"],
+.modal-contenido input[type="url"],
 .modal-contenido input[type="date"],
 .modal-contenido input[type="time"],
 .modal-contenido input[type="password"],

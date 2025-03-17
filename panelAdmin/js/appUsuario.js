@@ -40,6 +40,10 @@ async function obtenerUsuarios() {
             const celdaFechaCreacion = document.createElement('td');
             celdaFechaCreacion.textContent = new Date(usuario.created_at).toLocaleDateString();
 
+            const celdaFechaModificacion = document.createElement('td');
+            celdaFechaModificacion.textContent = new Date(usuario.updated_at).toLocaleDateString(); // Fecha de modificación
+
+
             const celdaAcciones = document.createElement('td');
 
             // Botón Editar (con ícono)
@@ -61,6 +65,7 @@ async function obtenerUsuarios() {
             // Agregamos las celdas a la fila (sin el ID)
             fila.appendChild(celdaCorreo);
             fila.appendChild(celdaFechaCreacion);
+            fila.appendChild(celdaFechaModificacion);
             fila.appendChild(celdaAcciones);
 
             // Agregamos la fila a la tabla
