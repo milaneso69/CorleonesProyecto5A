@@ -1,5 +1,5 @@
 // URL de la API
-const apiURL = 'http://192.168.1.7:3000/api/products'; // Asegúrate de que esta URL sea correcta
+const apiURL = 'http://192.168.3.57:3000/api/products'; // Asegúrate de que esta URL sea correcta
 
 // Elementos del DOM
 const tablaProductos = document.getElementById('tablaProductos');
