@@ -12,33 +12,33 @@ class Product {
     }
 
     static async create(data) {
-        const { Nombre, Precio, Descripcion, Stock } = data; // Asegúrate de que aquí sea 'Stock'
+        const { Nombre, Precio, Descripcion, STOCK } = data; // Asegúrate de que aquí sea 'STOCK'
         
-        if (Stock === undefined || Stock === null) {
-            throw new Error("El campo 'Stock' es obligatorio y no puede ser nulo.");
+        if (STOCK === undefined || STOCK === null) {
+            throw new Error("El campo 'STOCK' es obligatorio y no puede ser nulo.");
         }
 
         const result = await pool.query(
-            `INSERT INTO PRODUCTOS (Nombre, Precio, Descripcion, Stock) 
+            `INSERT INTO PRODUCTOS (Nombre, Precio, Descripcion, STOCK) 
              VALUES ($1, $2, $3, $4) RETURNING *`,
-            [Nombre, Precio, Descripcion, Stock]
+            [Nombre, Precio, Descripcion, STOCK]
         );
         return result.rows[0];
     }
 
     static async update(IdProducto, data) {
-        const { Nombre, Precio, Descripcion, Stock } = data;  // Aquí 'Stock' en mayúscula
+        const { Nombre, Precio, Descripcion, STOCK } = data;  // Aquí 'STOCK' en mayúscula
 
-        // Validación para asegurar que Stock no sea nulo
-        if (Stock === undefined || Stock === null) {
-            throw new Error("El campo 'Stock' es obligatorio y no puede ser nulo.");
+        // Validación para asegurar que STOCK no sea nulo
+        if (STOCK === undefined || STOCK === null) {
+            throw new Error("El campo 'STOCK' es obligatorio y no puede ser nulo.");
         }
 
         const result = await pool.query(
             `UPDATE PRODUCTOS
-             SET Nombre = $1, Precio = $2, Descripcion = $3, Stock = $4 
+             SET Nombre = $1, Precio = $2, Descripcion = $3, STOCK = $4 
              WHERE IdProducto = $5 RETURNING *`,
-            [Nombre, Precio, Descripcion, Stock, IdProducto]  // Asegúrate de usar 'Stock'
+            [Nombre, Precio, Descripcion, STOCK, IdProducto]  // Asegúrate de usar 'STOCK'
         );
         return result.rows[0];
     }

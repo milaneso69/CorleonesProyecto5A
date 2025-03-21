@@ -8,7 +8,7 @@
  *         - Nombre
  *         - Precio
  *         - Descripcion
- *         - Stock
+ *         - STOCK
  *       properties:
  *         IdProduct:
  *           type: integer
@@ -23,7 +23,7 @@
  *         Descripcion:
  *           type: string
  *           description: Descripcion del Producto.
- *         Stock:
+ *         STOCK:
  *           type: integer
  *           description: Cantidad de Productos.
  *         created_at:
@@ -43,7 +43,7 @@
  *         Nombre: "Cera para el Cabello"
  *         Precio: 120.00
  *         Descripcion: "120mg"
- *         Stock: 4
+ *         STOCK: 4
  *         created_at: "2024-10-22T10:20:30Z"
  *         updated_at: "2024-10-22T10:20:30Z"
  *         deleted_at: null
@@ -108,7 +108,7 @@
  *               - Nombre
  *               - Precio
  *               - Descripcion
- *               - Stock
+ *               - STOCK
  *             properties:
  *               Nombre:
  *                 type: string
@@ -123,7 +123,7 @@
  *                 type: string
  *                 description: Descripcion del Producto.
  *                 example: "120mg"
- *               Stock:
+ *               STOCK:
  *                 type: integer
  *                 description: Cantidad de Producto.
  *                 example: 4
@@ -163,7 +163,7 @@
  *               - Nombre
  *               - Precio
  *               - Descripcion
- *               - Stock
+ *               - STOCK
  *             properties:
  *               Nombre:
  *                 type: string
@@ -178,7 +178,7 @@
  *                 type: string
  *                 description: Descripcion del Producto.
  *                 example: "Cera de 120mg"
- *               Stock:
+ *               STOCK:
  *                 type: integer
  *                 description: Cantidad de Productos.
  *                 example: 4
