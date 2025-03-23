@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Boxicons -->
+    <link href='https://unpkg.com/boxicons@2.0.9/css/boxicons.min.css' rel='stylesheet'>
+    <link rel="stylesheet" href="css/styles.css">
+    <title>Corleones-Barbershop - Citas</title>
+</head>
+<body>
+
+    <script src="js/menu.js"></script>
+    <script src="js/script.js"></script>
+
+    <section id="content">
+        <nav>
+            <i class='bx bx-chevron-left'></i>
+            <form action="#">
+                <div class="form-input">
+                    <input type="search" placeholder="Buscar">
+                    <button type="submit" class="search-btn"><i class='bx bx-search'></i></button>
+                </div>
+            </form>
+            <div class="navbar-logo">
+                <img src="/img/corleonesss-blanco.png" alt="Logo" class="logo">
+            </div>
+            <a href="#" class="notification">
+                <i class='bx bxs-bell'></i>
+                <span class="num">!</span>
+            </a>
+            <a href="#" class="profile">
+                <img src="/img/user.png" alt="Perfil">
+            </a>
+        </nav>
+
+        <h1>Lista de Citas</h1>
+        <button id="btnAgregar" class="btnAgregar">
+            <i class='bx bx-plus'></i> Agregar Cita
+        </button>
+        <div class="table-container">
+            <table>
+                <thead>
+                    <tr>    
+                        <th>Cliente</th>
+                        <th>Servicio</th>
+                        <th>Fecha Agendada</th>
+                        <th>Fecha de Creación</th>
+                        <th>Última Modificación</th>
+                        <th>Acciones</th>
+                    </tr>
+                </thead>            
+                <tbody id="tablaCitas">
+                    <!-- Aquí se insertarán las filas de citas -->
+                </tbody>
+            </table>
+        </div>
+
+        <!-- Modal para agregar/editar cita -->
+        <div id="modal" class="modal">
+            <div class="modal-contenido">
+                <span class="cerrar">&times;</span>
+                <h2 id="modalTitulo">Agregar Cita</h2>
+                <form id="formCita">
+                    <input type="hidden" id="citaId">
+                    <label for="idCliente">ID Cliente:</label>
+                    <input type="number" id="idCliente" required placeholder="Ingrese el ID del cliente">
+                    <label for="idServicio">ID Servicio:</label>
+                    <input type="number" id="idServicio" required placeholder="Ingrese el ID del servicio">
+                    <label for="fechaAgendada">Fecha Agendada:</label>
+                    <input type="datetime-local" id="fechaAgendada" required>
+                    <button type="submit"><i class='bx bx-save'></i> Guardar</button>
+                </form>
+            </div>
+        </div>
+
+        <!-- Confirmación para eliminar cita -->
+        <div id="modalConfirmacion" class="modal">
+            <div class="modal-contenido">
+                <p>¿Quieres eliminar esta cita?</p>
+                <button id="btnConfirmarEliminar" class="btnEliminar"><i class='bx bx-trash'></i> Eliminar</button>
+                <button id="btnCancelarEliminar">Cancelar</button>
+            </div>
+        </div>
+    </section>
+
+    <script src="js/appCitas.js"></script>
+</body>
+</html>
