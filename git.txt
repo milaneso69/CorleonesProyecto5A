@@ -1,0 +1,66 @@
+PS C:\Users\zahid\Documents\ApiProyectoIntegrador4ATIDSM> git add . 
+warning: in the working copy of 'node_modules/.package-lock.json', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'package-lock.json', LF will be replaced by CRLF the next time Git touches it
+PS C:\Users\zahid\Documents\ApiProyectoIntegrador4ATIDSM> git commit -m "Nombre de produc y citas actualizados"
+[apiVersionFull 5ede8fe] Nombre de produc y citas actualizados
+ 6 files changed, 22 insertions(+), 906 deletions(-)
+ delete mode 100644 BD_APIS_BARBERIA.sql
+ delete mode 100644 BD_BARBERIA.SQL
+ rename app/routes/{citasRoute.js => citasRoutes.js} (100%)
+ rename app/routes/{productRoute.js => productRoutes.js} (97%)
+PS C:\Users\zahid\Documents\ApiProyectoIntegrador4ATIDSM> git push -m origin apiVersionFull
+error: unknown switch `m'
+usage: git push [<options>] [<repository> [<refspec>...]]
+
+    -v, --[no-]verbose    be more verbose
+    -q, --[no-]quiet      be more quiet
+    --[no-]repo <repository>
+                          repository
+    --[no-]all            push all branches
+    --[no-]branches       alias of --all
+    --[no-]mirror         mirror all refs
+    -d, --[no-]delete     delete refs
+    --[no-]tags           push tags (can't be used with --all or --branches or --mirror)
+    -n, --[no-]dry-run    dry run
+    --[no-]porcelain      machine-readable output
+    -f, --[no-]force      force updates
+    --[no-]force-with-lease[=<refname>:<expect>]
+                          require old value of ref to be at this value
+    --[no-]force-if-includes
+                          require remote updates to be integrated locally
+    --[no-]recurse-submodules (check|on-demand|no)
+                          control recursive pushing of submodules
+    --[no-]thin           use thin pack
+    --[no-]receive-pack <receive-pack>
+                          receive pack program
+    --[no-]exec <receive-pack>
+                          receive pack program
+    -u, --[no-]set-upstream
+                          set upstream for git pull/status
+    --[no-]progress       force progress reporting
+    --[no-]prune          prune locally removed refs
+    --no-verify           bypass pre-push hook
+    --verify              opposite of --no-verify
+    --[no-]follow-tags    push missing but relevant tags
+    --[no-]signed[=(yes|no|if-asked)]
+                          GPG sign the push
+    --[no-]atomic         request atomic transaction on remote side
+    -o, --[no-]push-option <server-specific>
+                          option to transmit
+    -4, --ipv4            use IPv4 addresses only
+    -6, --ipv6            use IPv6 addresses only
+
+PS C:\Users\zahid\Documents\ApiProyectoIntegrador4ATIDSM> git push -u origin apiVersionFull
+Enumerating objects: 14, done.
+Counting objects: 100% (14/14), done.
+Delta compression using up to 8 threads
+Compressing objects: 100% (8/8), done.
+Writing objects: 100% (8/8), 1.83 KiB | 469.00 KiB/s, done.
+Total 8 (delta 6), reused 0 (delta 0), pack-reused 0 (from 0)
+remote: Resolving deltas: 100% (6/6), completed with 6 local objects.
+To https://github.com/milaneso69/CorleonesProyecto5A
+   64adfcd..5ede8fe  apiVersionFull -> apiVersionFull
+branch 'apiVersionFull' set up to track 'origin/apiVersionFull'.
+PS C:\Users\zahid\Documents\ApiProyectoIntegrador4ATIDSM> 
+PS C:\Users\zahid\Documents\ApiProyectoIntegrador4ATIDSM>
+PS C:\Users\zahid\Documents\ApiProyectoIntegrador4ATIDSM>

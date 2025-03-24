@@ -3,7 +3,7 @@ const pool = require('../config/db');
 class Ventas {
     
     static async findAll() {
-        const result = await pool.query('SELECT * FROM sales');
+        const result = await pool.query('SELECT * FROM VENTAS');
         return result.rows;
     }
 

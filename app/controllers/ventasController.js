@@ -1,6 +1,6 @@
-const Ventas = require('../models/saleModel'); 
+const Ventas = require('../models/ventasModel'); 
 
-class saleController {
+class ventasController {
     
     static async getAllVentas(req, res) {
         try {
@@ -54,4 +54,4 @@ class saleController {
     }
 }
 
-module.exports = saleController;
+module.exports = ventasController;
