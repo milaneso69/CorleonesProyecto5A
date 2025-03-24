@@ -64,3 +64,9 @@ branch 'apiVersionFull' set up to track 'origin/apiVersionFull'.
 PS C:\Users\zahid\Documents\ApiProyectoIntegrador4ATIDSM> 
 PS C:\Users\zahid\Documents\ApiProyectoIntegrador4ATIDSM>
 PS C:\Users\zahid\Documents\ApiProyectoIntegrador4ATIDSM>
+
+
+git add .
+git commit -m ""
+git push -u origin apiVersionFull
+
