@@ -67,6 +67,6 @@ PS C:\Users\zahid\Documents\ApiProyectoIntegrador4ATIDSM>
 
 
 git add .
-git commit -m ""
+git commit -m "texto"
 git push -u origin apiVersionFull
 
