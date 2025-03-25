@@ -39,7 +39,7 @@ app.listen(PORT, '0.0.0.0', () => {
   // console.log('Servidor Corriendo en http://localhost:3000');
   // console.log('Servidor Corriendo en http://localhost:3000');
   // console.log(`Servidor corriendo en el puerto ${PORT}`);
-  console.log(`Servidor corriendo en http://192.168.1.68:${PORT}`);
+  console.log(`Servidor corriendo en http://10.0.179.59:${PORT}`);
 });
 
 // Proyecto Integrador.
