@@ -1,0 +1,81 @@
+<app-headermenu></app-headermenu>
+
+<section id="content">
+    <br />
+    <h1 style="text-align: center;">Lista de Servicios</h1>
+    <button id="btnAgregar" class="btnAgregar" (click)="openAddModal()">
+      <i class='bx bx-user-plus'></i> Agregar Servicio
+    </button>
+
+    <div class="table-container">
+        <table>
+          <thead>
+            <tr>
+              <th>Nombre</th>
+              <th>Descripción</th>
+              <th>Precio</th>
+              <th>Fecha de Creación</th>
+              <th>Ultima Modificación</th>
+              <th>Acciones</th>
+            </tr>
+          </thead>
+          <tbody id="tablaServicios">
+            <tr *ngFor="let service of services">
+            <td>{{ service.nombre }}</td>
+            <td>{{ service.descripcion }}</td>
+            <td>{{ service.precio }}</td>
+            <td>{{ service.created_at | date }}</td>
+            <td>{{ service.updated_at | date }}</td>
+            <td>
+                <button (click)="openEditModal(service)"><i class='bx bx-edit'></i></button>
+                <button (click)="openDeleteModal(service)"><i class='bx bx-trash'></i></button>
+              </td>
+            </tr>
+            <tr *ngIf="services.length === 0">
+                <td colspan="6" class="no-data">No hay Servicios Disponibles</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <!-- Modal para agregar/editar servicio -->
+<div id="modal" class="modal" *ngIf="showAddModal || showEditModal">
+    <div class="modal-contenido">
+      <span (click)="showAddModal ? closeAddModal() : closeEditModal()" class="cerrar">&times;</span>
+      <h2>{{ showAddModal ? 'Agregar Servicio' : 'Editar Servicio' }}</h2>
+      <form [formGroup]="servicesForm" (ngSubmit)="showAddModal ? addServices() : updateServices()">
+        <label for="nombre">Nombre:</label>
+        <input type="text" id="nombre" formControlName="nombre" required placeholder="Ingrese el Nombre" (keypress)="onKeyPress($event)" maxlength="50"/>
+        <span *ngIf="servicesForm.get('nombre')?.invalid && servicesForm.get('nombre')?.touched" class="error-message">
+          El Nombre es obligatorio
+        </span>
+        <span *ngIf="servicesForm.get('nombre')?.errors?.['soloLetras']">Solo se permiten letras y espacios</span>
+        <label for="descripcion">Descripcion:</label>
+        <input type="text" id="descripcion" formControlName="descripcion" required placeholder="Ingrese la Descripcion del Servicio" (keypress)="onKeyPress($event)"  maxlength="50"/>
+        <span *ngIf="servicesForm.get('descripcion')?.invalid && servicesForm.get('descripcion')?.touched" class="error-message">
+          La Descripcion es obligatorio
+        </span>
+        <span *ngIf="servicesForm.get('descripcion')?.errors?.['soloLetras']">Solo se permiten letras y espacios</span>
+        <label for="precio">Precio:</label>
+        <input type="text" id="precio" formControlName="precio" required placeholder="Ingrese el Precio" (keypress)="soloNumeros($event)" (input)="limitarLongitud($event, 10)"/>
+        <span *ngIf="servicesForm.get('precio')?.invalid && servicesForm.get('precio')?.touched" class="error-message">
+          El Precio es obligatorio
+        </span>
+        <button type="submit">
+          <i class="bx bx-save"></i> {{ showAddModal ? 'Guardar' : 'Actualizar' }}
+        </button>
+      </form>
+    </div>
+  </div>
+
+  <!-- Modal de confirmación para eliminar servicio -->
+<div id="modalConfirmacion" class="modal" *ngIf="showDeleteModal">
+    <div class="modal-contenido">
+      <p>¿Quieres eliminar este servicio?</p>
+      <button class="btnEliminar" (click)="deleteServices()">
+        <i class="bx bx-trash"></i> Eliminar
+      </button>
+      <button (click)="closeDeleteModal()">Cancelar</button>
+    </div>
+  </div>
+</section>

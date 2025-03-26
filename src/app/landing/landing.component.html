@@ -1,0 +1,69 @@
+<!-- Barra -->
+<header>
+    <nav class="nav-container">
+        <a href="#" class="logo">
+            <img src="/assets/corleonesss-blanco.png" alt="Logo" style="max-height: 45px;">
+        </a>
+        <ul class="nav-links">
+            <li><a href="#inicio">Inicio</a></li>
+            <li><a href="#servicios">Servicios</a></li>
+            <li><a href="#citas">Citas</a></li>
+            <li><a href="#contacto">Contacto</a></li>
+            <li><a routerLink="/login">Login</a></li>
+            <li><a routerLink="/register">Register</a></li>
+        </ul>
+    </nav>
+</header>
+
+<!-- Inicio -->
+<div id="inicio" class="hero-image">
+    <img src="/assets/fondo.jpg" alt="Imagen hero">
+    <div class="hero-content">
+    </div>
+</div>
+
+<!-- Servicios -->
+<section id="servicios" class="content saw">
+        <h1 class="title">Servicios</h1>
+        <h2 class="title2">En Corleones ofrecemos difentes servicios, como corte de cabello y barba, ademas de una coleccion de ceras para el cabello. ¡Visitanos y conoce nuestros servicios!</h2>
+    <div class="servicios-container">
+        <!-- Tarjeta 1 -->
+        <div class="servicio-card">
+            <div class="card-image">
+                <img src="/assets/fondo1.jpg" alt="Corte de cabello">
+            </div>
+            <div class="card-content">
+                <h3>Corte de Cabello</h3>
+                <p>Luce un look elegante</p>
+                <span class="price">Precio: 150$</span>
+            </div>
+        </div>
+        
+        <!-- Tarjeta 2 -->
+        <div class="servicio-card">
+            <div class="card-image">
+                <img src="/assets/fondo3.jpg" alt="Afeitado clásico">
+            </div>
+            <div class="card-content">
+                <h3>Ceras para Cabello</h3>
+                <p>Para moldear tu cabello</p>
+                <span class="price">Precio: 100$</span>
+            </div>
+        </div>
+        
+        <!-- Tarjeta 3 -->
+        <div class="servicio-card">
+            <div class="card-image">
+                <img src="/assets/fondo2.jpg" alt="Arreglo de barba">
+            </div>
+            <div class="card-content">
+                <h3>Limpieza Facial</h3>
+                <p>Rejuvenece tu piel</p>
+                <span class="price">Precio: 200$</span>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Footer -->
+<app-footer></app-footer>

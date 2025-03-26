@@ -1,0 +1,45 @@
+@import url('https://fonts.googleapis.com/css2?family=Lato:wght@400;700&family=Poppins:wght@400;500;600;700&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+a {
+    text-decoration: none;
+}
+
+li {
+    list-style: none;
+}
+
+:root {
+    --poppins: 'Poppins', sans-serif;
+    --lato: 'Lato', sans-serif;
+
+    --light: #000000; /* Fondo oscuro */
+    --blue: #ff0000; /* Rojo */
+    --light-blue: #ffffff; /* Azul claro CFE8FF */
+    --grey: #171718; /* Gris oscuro */
+    --dark-grey: #AAAAAA; /* Gris medio */      
+    --dark: #FBFBFB; /* Texto blanco */
+    --red: #DB504A; /* Rojo */
+    --yellow: #FFCE26; /* Amarillo */
+    --light-yellow: #FFF2C6; /* Amarillo claro */
+    --orange: #850c0c; /* Naranja */
+    --light-orange: #FFE0D3; /* Naranja claro */
+    --dorado: #FFD700; /* Dorado */
+    --light-dorado: #FFECB3; /* Dorado claro */
+}
+
+html {
+    overflow-x: hidden;
+}
+
+body {
+    background: var(--grey); /* Fondo gris oscuro */
+    overflow-x: hidden;
+    color: var(--dark); /* Texto blanco */
+    font-family: var(--lato);
+}

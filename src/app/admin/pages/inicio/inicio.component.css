@@ -1,0 +1,29 @@
+/* Contenedor de gráficas */
+.graficas-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px; /* Espacio entre gráficas */
+    margin-top: 20px;
+}
+
+/* Estilos para cada gráfica */
+.grafica {
+    background: var(--light); /* Fondo oscuro */
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    flex: 1 1 calc(50% - 20px); /* Dos gráficas por fila */
+}
+
+/* Ajustes para el canvas de las gráficas */
+canvas {
+    width: 100% !important;
+    height: 300px !important; /* Altura fija para las gráficas */
+}
+
+#content {
+    position: relative;
+    width: calc(100% - 280px);
+    left: 280px;
+    transition: .3s ease;
+}

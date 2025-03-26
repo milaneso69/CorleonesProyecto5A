@@ -1,0 +1,79 @@
+<app-headermenu></app-headermenu>
+
+<section id="content">
+    <br />
+    <h1 style="text-align: center;">Lista de Citas</h1>
+    <button id="btnAgregar" class="btnAgregar" (click)="openAddModal()">
+      <i class='bx bx-user-plus'></i> Agregar Cita
+    </button>
+
+    <div class="table-container">
+        <table>
+          <thead>
+            <tr>
+              <th>Cliente</th>
+              <th>Servicio</th>
+              <th>Fecha Agendada</th>
+              <th>Fecha de Creación</th>
+              <th>Ultima Modificación</th>
+              <th>Acciones</th>
+            </tr>
+        </thead>            
+        <tbody id="tablaCitas">
+            <tr *ngFor="let appointment of appointments">
+                <td>{{ appointment.idcliente }}</td>
+                <td>{{ appointment.idservicio }}</td>
+                <td>{{ appointment.fechaagendada }}</td>
+                <td>{{ appointment.created_at | date }}</td>
+                <td>{{ appointment.updated_at | date }}</td>
+                <td>
+                    <button (click)="openEditModal(appointment)"><i class='bx bx-edit'></i></button>
+                    <button (click)="openDeleteModal(appointment)"><i class='bx bx-trash'></i></button>
+                  </td>
+                </tr>
+                <tr *ngIf="appointments.length === 0">
+                    <td colspan="6" class="no-data">No hay Citas Disponibles</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+
+            <!-- Modal para agregar/editar cita -->
+<div id="modal" class="modal" *ngIf="showAddModal || showEditModal">
+    <div class="modal-contenido">
+      <span (click)="showAddModal ? closeAddModal() : closeEditModal()" class="cerrar">&times;</span>
+      <h2>{{ showAddModal ? 'Agregar Cita' : 'Editar Cita' }}</h2>
+      <form [formGroup]="appointmentsForm" (ngSubmit)="showAddModal ? addAppointments() : updateAppointments()">
+        <label for="idcliente">ID Cliente:</label>
+        <input type="text" id="idcliente" formControlName="idcliente" required placeholder="Ingrese el ID del cliente" (keypress)="soloNumeros($event)" (input)="limitarLongitud($event, 10)"/>
+        <span *ngIf="appointmentsForm.get('idcliente')?.invalid && appointmentsForm.get('idcliente')?.touched" class="error-message">
+          El ID es obligatorio
+        </span>
+        <label for="idservicio">ID Servicio:</label>
+        <input type="text" id="idservicio" formControlName="idservicio" required placeholder="Ingrese el ID del servicio" (keypress)="soloNumeros($event)" (input)="limitarLongitud($event, 10)"/>
+        <span *ngIf="appointmentsForm.get('idservicio')?.invalid && appointmentsForm.get('idservicio')?.touched" class="error-message">
+          El ID es obligatorio
+        </span>
+        <label for="fechaagendada">Fecha Agendada:</label>
+        <input type="datetime-local" id="fechaagendada" formControlName="fechaagendada" (keypress)="onKeyPress($event)"  maxlength="20"/>
+        <span *ngIf="appointmentsForm.get('fechaagendada')?.invalid && appointmentsForm.get('fechaagendada')?.touched" class="error-message">
+          La Fecha es obligatorio
+        </span>
+        <button type="submit">
+          <i class="bx bx-save"></i> {{ showAddModal ? 'Guardar' : 'Actualizar' }}
+        </button>
+      </form>
+    </div>
+  </div>
+
+  <!-- Modal de confirmación para eliminar cita -->
+<div id="modalConfirmacion" class="modal" *ngIf="showDeleteModal">
+    <div class="modal-contenido">
+      <p>¿Quieres eliminar esta cita?</p>
+      <button class="btnEliminar" (click)="deleteAppointments()">
+        <i class="bx bx-trash"></i> Eliminar
+      </button>
+      <button (click)="closeDeleteModal()">Cancelar</button>
+    </div>
+  </div>
+</section>
