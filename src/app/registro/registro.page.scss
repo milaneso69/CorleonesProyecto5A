@@ -1,0 +1,50 @@
+.schedule-card {
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+    
+    ion-card-header {
+      padding-bottom: 0;
+      
+      ion-card-title {
+        font-size: 1.2rem;
+        font-weight: 600;
+        
+        ion-icon {
+          color: var(--ion-color-warning);
+        }
+      }
+    }
+  }
+  
+  .schedule-day {
+    padding: 8px 0;
+    border-bottom: 1px solid var(--ion-color-light);
+    
+    &:last-child {
+      border-bottom: none;
+    }
+    
+    .day-label {
+      font-weight: 500;
+    }
+  }
+  
+  .schedule-day.sunday {
+    .day-label {
+      color: var(--ion-color-danger);
+      font-weight: 600;
+    }
+  }
+  
+  /* Para dispositivos más grandes */
+  @media (min-width: 768px) {
+    .schedule-card {
+      ion-grid {
+        padding: 0 16px;
+      }
+      
+      .schedule-day {
+        padding: 10px 0;
+      }
+    }
+  }

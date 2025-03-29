@@ -12,3 +12,78 @@
     gap: 10px; /* Espacio entre chips */
     padding: 5px;
   }
+
+  .safe-area-header {
+    padding-top: constant(safe-area-inset-top);
+    padding-top: env(safe-area-inset-top);
+  }
+  
+  .header-logo {
+    height: 65px; /* Ajusta según necesites */
+    width: auto;
+    max-width: 150px; /* Limita el ancho máximo */
+    object-fit: contain;
+    margin-left: 10px;
+  }
+  
+  .logo-container {
+    display: flex;
+    align-items: center;
+    height: 100%;
+  }
+  
+  .cart-button {
+    --padding-start: 8px;
+    --padding-end: 8px;
+    margin-right: 8px;
+  }
+
+  .social-rating-section {
+    padding: 10px 0;
+    
+    ion-col {
+      padding: 0 8px;
+    }
+  }
+  
+  .social-btn {
+    --border-radius: 50%;
+    width: 48px;
+    height: 48px;
+    
+    ion-icon {
+      font-size: 28px;
+    }
+    
+    &.facebook {
+      --background: #3b5998;
+      --color: white;
+    }
+    
+    &.instagram {
+      --background: radial-gradient(circle at 30% 107%, #fdf497 0%, #fdf497 5%, #fd5949 45%, #d6249f 60%, #285AEB 90%);
+      --color: white;
+    }
+  }
+  
+  .rating-col {
+    display: flex;
+    align-items: center;
+    
+    .rating-stars {
+      display: flex;
+      align-items: center;
+      
+      ion-icon {
+        font-size: 18px;
+        margin-right: 2px;
+      }
+      
+      .rating-text {
+        margin-left: 6px;
+        font-size: 16px;
+        font-weight: bold;
+        color: var(--ion-color-dark);
+      }
+    }
+  }

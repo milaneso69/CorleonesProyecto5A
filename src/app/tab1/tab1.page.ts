@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-
+import { InAppBrowser } from '@awesome-cordova-plugins/in-app-browser/ngx';
 
 @Component({
   selector: 'app-tab1',
@@ -8,7 +8,13 @@ import { Component } from '@angular/core';
   standalone: false,
 })
 export class Tab1Page {
+  constructor(private iab: InAppBrowser) {}
 
-  constructor() {}
+  openFacebook() {
+    this.iab.create('https://www.facebook.com/CorleonesBarberCordoba', '_system');
+  }
 
+  openInstagram() {
+    this.iab.create('https://www.instagram.com/aldo_banuelos_?igsh=ZG1obGZqZHE0aXhm', '_system');
+  }
 }

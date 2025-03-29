@@ -14,7 +14,39 @@
   <div>
     <ion-button id="open-loading">Guardar datos</ion-button>
     <ion-loading trigger="open-loading" message="Loading..." [duration]="3000" spinner="circles"></ion-loading>
-    <ion-button routerLink="/tabs/tab2" color="warning" shape="regresar"><ion-icon name="return-up-back-outline"></ion-icon></ion-button>
+    <ion-button routerLink="/tabs/tab1" color="warning" shape="regresar"><ion-icon name="return-up-back-outline"></ion-icon></ion-button>
     
   </div>
+
+  <ion-card class="ion-margin-top schedule-card">
+    <ion-card-header>
+      <ion-card-title class="ion-text-center">
+        <ion-icon name="time-outline" class="ion-margin-end"></ion-icon>
+        Horarios de atención
+      </ion-card-title>
+    </ion-card-header>
+    
+    <ion-card-content>
+      <ion-grid>
+        <ion-row *ngFor="let day of schedule" 
+                 class="schedule-day"
+                 [class.current-day]="isCurrentDay(day.dayName)">
+          <ion-col size="5">
+            <ion-label class="day-label">{{day.dayName}}</ion-label>
+          </ion-col>
+          <ion-col size="7" class="ion-text-end">
+            <ion-text [color]="isCurrentDay(day.dayName) ? 'danger' : 'medium'">
+              {{day.hours}}
+            </ion-text>
+          </ion-col>
+        </ion-row>
+      </ion-grid>
+      
+      <ion-note class="ion-margin-top" color="medium">
+        <ion-icon name="information-circle-outline"></ion-icon>
+        Horarios sujetos a cambios en días festivos
+      </ion-note>
+    </ion-card-content>
+  </ion-card>
+  
 </ion-content>
