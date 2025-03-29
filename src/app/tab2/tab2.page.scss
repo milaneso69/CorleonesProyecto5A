@@ -1,0 +1,42 @@
+/* Ajuste para los botones inferiores */
+.button-container {
+    padding: 0 16px 80px 16px; /* 80px de padding-bottom para espacio del tabs */
+    margin-top: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    position: relative;
+    z-index: 1;
+  
+    ion-button {
+      margin: 0;
+      --border-radius: 8px;
+      height: 50px;
+      font-weight: 500;
+      --box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+      
+      ion-icon {
+        font-size: 1.2em;
+        margin-right: 8px;
+      }
+    }
+  }
+  
+  /* Asegurar que el contenido no quede detrás del tabs */
+  ion-content {
+    --padding-bottom: 80px; /* Igual al padding-bottom del contenedor */
+  }
+  
+  /* Opcional: estilo para los botones si quieres mantener la temática roja/negra */
+  .button-container ion-button[color="warning"] {
+    --background: #d32f2f;
+    --background-activated: #b71c1c;
+    --color: white;
+  }
+  
+  .button-container ion-button[color="primary"] {
+    --background: #333;
+    --background-activated: #444;
+    --color: white;
+    border: 1px solid #d32f2f;
+  }

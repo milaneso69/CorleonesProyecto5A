@@ -1,0 +1,134 @@
+/* Variables de tema oscuro */
+:host {
+    --profile-card-background: #1a1a1a;
+    --profile-card-shadow: 0 4px 16px rgba(0, 0, 0, 0.5);
+    --input-background: #2d2d2d;
+    --input-border: 1px solid #444;
+    --primary-color: #d32f2f; /* Rojo oscuro */
+    --text-color: #ffffff;
+    --danger-color: #ff5252;
+  }
+  
+  /* Estructura principal */
+  ion-content {
+    --background: #000000;
+    color: var(--text-color);
+  }
+  
+  /* Tarjeta de perfil */
+  .profile-card {
+    background: var(--profile-card-background);
+    border-radius: 12px;
+    box-shadow: var(--profile-card-shadow);
+    margin: 20px;
+    border: 1px solid #333;
+  
+    ion-card-header {
+      background: linear-gradient(to right, #d32f2f, #b71c1c);
+      color: white;
+      padding: 16px;
+      
+      ion-card-title {
+        font-size: 1.3rem;
+        font-weight: 600;
+        display: flex;
+        align-items: center;
+        
+        ion-icon {
+          margin-right: 8px;
+        }
+      }
+    }
+  
+    ion-card-content {
+      padding: 16px;
+    }
+  }
+  
+  /* Items del formulario */
+  ion-item {
+    --background: transparent;
+    --padding-start: 0;
+    --inner-padding-end: 0;
+    --border-color: transparent;
+    margin-bottom: 16px;
+  
+    ion-label[position="stacked"] {
+      color: #b0b0b0;
+      font-weight: 500;
+      margin-bottom: 6px;
+      font-size: 0.85rem;
+    }
+  
+    ion-input {
+      --background: var(--input-background);
+      --color: white;
+      --padding-start: 12px;
+      --padding-end: 12px;
+      --padding-top: 10px;
+      --padding-bottom: 10px;
+      border-radius: 8px;
+      border: var(--input-border);
+      font-size: 1rem;
+      min-height: 46px;
+    }
+  }
+  
+  /* Botones */
+  .action-buttons {
+    padding: 0 20px;
+    margin-top: 20px;
+  
+    ion-button {
+      --border-radius: 10px;
+      --box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+      --background: #d32f2f;
+      --color: white;
+      font-weight: 500;
+      height: 46px;
+      margin-bottom: 14px;
+      transition: transform 0.2s, box-shadow 0.2s;
+      border: 1px solid #ff5252;
+  
+      &:active {
+        transform: translateY(2px);
+        --background: #b71c1c;
+      }
+  
+      ion-icon {
+        color: white;
+        margin-right: 8px;
+      }
+    }
+  }
+  
+  /* Chip de administrador */
+  .admin-chip {
+    display: flex;
+    justify-content: center;
+    margin: 16px 0;
+  
+    ion-chip {
+      background: linear-gradient(to right, #d32f2f, #b71c1c);
+      color: white;
+      font-weight: 500;
+      padding: 6px 14px;
+      box-shadow: 0 2px 8px rgba(211, 47, 47, 0.3);
+  
+      ion-icon {
+        color: white;
+        margin-right: 6px;
+      }
+    }
+  }
+  
+  /* Header */
+  ion-toolbar {
+    --background: #121212;
+    --color: white;
+    
+    .header-icon {
+      margin-right: 8px;
+      color: #d32f2f;
+    }
+  }

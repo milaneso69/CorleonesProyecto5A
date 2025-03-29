@@ -50,12 +50,12 @@ export class LoginPage {
       const usuarioValido = usuarios.find((u: any) => 
         u.email === this.email && u.password === this.password
       );
-
+  
       if (usuarioValido) {
-        this.setLocalStorageItem('usuarioActual', usuarioValido);
+        this.setLocalStorageItem('usuarioActual', usuarioValido); // <-- Esta es la clave importante
         
         await this.mostrarAlerta('Bienvenido', `Hola ${usuarioValido.nombre}!`);
-        this.router.navigate(['/tabs/tab1']); // Redirige a las tabs
+        this.router.navigate(['/tabs/tab1']);
       } else {
         await this.mostrarAlerta('Error', 'Credenciales incorrectas');
       }

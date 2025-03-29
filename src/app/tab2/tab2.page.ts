@@ -12,19 +12,19 @@ export class Tab2Page {
 
   // Lista de servicios 
   servicios = [
-    { id: 101, nombre: 'Mullet', descripcion: 'Desvanecido de patillas y shaver en patillas.', precio: 130, imagen: 'assets/img/mullet.jpg' },
-    { id: 102, nombre: 'High Fade', descripcion: 'Desvanecido alto desde shaver.', precio: 130, imagen: 'assets/img/high-fade.jpg' },
-    { id: 103, nombre: 'Low Fade', descripcion: 'Desvanecido bajo desde shaver.', precio: 130, imagen: 'assets/img/low-fade.jpg' },
-    { id: 104, nombre: 'Low Fade en V', descripcion: 'Desvanecido bajo en V desde shaver.', precio: 130, imagen: 'assets/img/low-fade-v.jpg' },
-    { id: 105, nombre: 'Tapper Fade', descripcion: 'Desvanecido de patillas y contorno de atrás.', precio: 130, imagen: 'assets/img/tapper-fade.jpg' }
+    { id: 101, nombre: 'Mullet', descripcion: 'Desvanecido de patillas y shaver en patillas.', precio: 130, imagen: 'assets/icon/mullet.jpeg' },
+    { id: 102, nombre: 'High Fade', descripcion: 'Desvanecido alto desde shaver.', precio: 130, imagen: 'assets/icon/High Fade.jpg' },
+    { id: 103, nombre: 'Low Fade', descripcion: 'Desvanecido bajo desde shaver.', precio: 130, imagen: 'assets/icon/LowFade.jpeg' },
+    { id: 104, nombre: 'Low Fade en V', descripcion: 'Desvanecido bajo en V desde shaver.', precio: 130, imagen: 'assets/icon/Low Fade V.jpg' },
+    { id: 105, nombre: 'Tapper Fade', descripcion: 'Desvanecido de patillas y contorno de atrás.', precio: 130, imagen: 'assets/icon/TaperFade.jpeg' }
   ];
 
   // Lista de productos 
   productos = [
-    { id: 1, nombre: 'Cera Original', descripcion: 'Cera para cabello.', precio: 100, imagen: 'assets/img/cera-original.jpg' },
-    { id: 2, nombre: 'Cera Strong', descripcion: 'Cera para el cabello.', precio: 120, imagen: 'assets/img/cera-strong.jpg' },
-    { id: 3, nombre: 'Cera Matte', descripcion: 'Cera para el cabello.', precio: 150, imagen: 'assets/img/cera-matte.jpg' },
-    { id: 4, nombre: 'Cera Black', descripcion: 'Cera para el cabello.', precio: 150, imagen: 'assets/img/cera-black.jpg' }
+    { id: 1, nombre: 'Cera Original', descripcion: 'Cera para cabello.', precio: 100, imagen: 'assets/icon/CeraOriginal.webp' },
+    { id: 2, nombre: 'Cera Strong', descripcion: 'Cera para el cabello.', precio: 120, imagen: 'assets/icon/CeraBuffaloStrongMatte.jpeg' },
+    { id: 3, nombre: 'Cera Matte', descripcion: 'Cera para el cabello.', precio: 150, imagen: 'assets/icon/CeraMate.webp' },
+    { id: 4, nombre: 'Cera Black', descripcion: 'Cera para el cabello.', precio: 150, imagen: 'assets/icon/CeraBlack.jpg' }
   ];
 
   // Listas filtradas

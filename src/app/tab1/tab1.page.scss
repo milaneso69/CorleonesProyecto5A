@@ -87,3 +87,22 @@
       }
     }
   }
+
+  /* Estilos para el carrusel con tamaño fijo */
+  .carousel-fixed-img {
+    height: 350px; /* Altura fija */
+    width: 100%;   /* Ancho al 100% del contenedor */
+    object-fit: cover; /* Ajusta la imagen manteniendo la proporción */
+  }
+  
+  /* Opcional: ajustar el contenedor del carrusel */
+  #carouselExampleCaptions {
+    max-width: 800px; /* Ancho máximo del carrusel */
+    margin: 0 auto;   /* Centrar el carrusel */
+  }
+  
+  /* Opcional: ajustar los controles del carrusel */
+  .carousel-control-prev,
+  .carousel-control-next {
+    background-color: rgba(0, 0, 0, 0.3);
+  }
