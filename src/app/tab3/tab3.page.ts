@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { AlertController } from '@ionic/angular';
+import { ViewWillEnter } from '@ionic/angular'; // Nombre correcto de la interfaz
 
 @Component({
   selector: 'app-tab3',
@@ -8,7 +9,7 @@ import { AlertController } from '@ionic/angular';
   styleUrls: ['tab3.page.scss'],
   standalone: false,
 })
-export class Tab3Page implements OnInit {
+export class Tab3Page implements OnInit, ViewWillEnter {
   usuario: any = {
     nombre: '',
     email: '',
@@ -25,12 +26,21 @@ export class Tab3Page implements OnInit {
     this.cargarDatosUsuario();
   }
 
+  ionViewWillEnter() {
+    // Esto se ejecutará cada vez que la página esté a punto de mostrarse
+    this.cargarDatosUsuario();
+  }
+
   async cargarDatosUsuario() {
     const usuarioActual = JSON.parse(localStorage.getItem('usuarioActual') || '{}');
     
     if (usuarioActual && usuarioActual.email) {
-      this.usuario = usuarioActual;
-      this.esAdmin = usuarioActual.email === 'admin@example.com'; // Ajusta esto según tu lógica de admin
+      this.usuario = {
+        nombre: usuarioActual.nombre || '',
+        email: usuarioActual.email || '',
+        telefono: usuarioActual.telefono || ''
+      };
+      this.esAdmin = usuarioActual.email.toLowerCase() === 'admin@example.com';
     } else {
       const alert = await this.alertCtrl.create({
         header: 'Sesión no iniciada',

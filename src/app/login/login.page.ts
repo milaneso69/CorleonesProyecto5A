@@ -52,10 +52,11 @@ export class LoginPage {
       );
   
       if (usuarioValido) {
-        this.setLocalStorageItem('usuarioActual', usuarioValido); // <-- Esta es la clave importante
+        // Guardar usuario en localStorage con la clave CORRECTA
+        this.setLocalStorageItem('usuarioActual', usuarioValido);
         
         await this.mostrarAlerta('Bienvenido', `Hola ${usuarioValido.nombre}!`);
-        this.router.navigate(['/tabs/tab1']);
+        this.router.navigate(['/tabs/tab1']); // Redirige a las tabs
       } else {
         await this.mostrarAlerta('Error', 'Credenciales incorrectas');
       }

@@ -29,10 +29,8 @@ export class RegistroPage {
     if (this.registroForm.valid) {
       const usuario = this.registroForm.value;
       
-      // Obtener usuarios existentes o crear array vacío
       const usuarios = JSON.parse(localStorage.getItem('usuarios') || '[]');
       
-      // Verificar si el email ya existe
       const existeUsuario = usuarios.some((u: any) => u.email === usuario.email);
       
       if (existeUsuario) {
@@ -45,8 +43,14 @@ export class RegistroPage {
         return;
       }
       
-      // Agregar nuevo usuario
-      usuarios.push(usuario);
+      // Agregar nuevo usuario con todos los campos necesarios
+      usuarios.push({
+        nombre: usuario.nombre,
+        email: usuario.email,
+        password: usuario.password,
+        telefono: usuario.telefono
+      });
+      
       localStorage.setItem('usuarios', JSON.stringify(usuarios));
       
       const alert = await this.alertCtrl.create({
@@ -56,16 +60,7 @@ export class RegistroPage {
       });
       await alert.present();
       
-      // Redirigir a login después de registro exitoso
       this.router.navigate(['/login']);
-    } else {
-      this.registroForm.markAllAsTouched();
-      const alert = await this.alertCtrl.create({
-        header: 'Error',
-        message: 'Por favor, completa correctamente todos los campos.',
-        buttons: ['OK']
-      });
-      await alert.present();
     }
   }
 }
