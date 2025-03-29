@@ -1,0 +1,61 @@
+.logo {
+    width: 250px;
+    height: 180px;
+    margin: 0 auto;
+    display: block;
+    animation: wave 5s ease-in-out infinite;
+    filter: drop-shadow(0 2px 5px rgba(0,0,0,0.3));
+}
+
+@keyframes wave {
+    0%, 100% {
+        transform: perspective(500px) rotateY(0deg) skewY(0deg) scale(1);
+    }
+    25% {
+        transform: perspective(500px) rotateY(2deg) skewY(1deg) scale(0.98);
+    }
+    50% {
+        transform: perspective(500px) rotateY(0deg) skewY(-0.5deg) scale(0.99);
+    }
+    75% {
+        transform: perspective(500px) rotateY(-2deg) skewY(-1deg) scale(0.98);
+    }
+}
+
+
+  /* Contenedor del formulario */
+  form {
+    max-width: 500px; /* Ancho máximo del formulario */
+    margin: 0 auto; /* Centrado horizontal */
+    padding: 20px;
+    background: #0f0f0f; /* Fondo gris oscuro sutil */
+    border-radius: 15px; /* Bordes redondeados */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3); /* Sombra sutil */
+  }
+  
+ 
+  
+  
+  .login-button {
+    --background: #ff0000; /* Color de fondo del botón */
+    --color: #ffffff; /* Color del texto */
+    --border-radius: 25px; /* Bordes redondeados */
+    --padding-top: 20px;
+    --padding-bottom: 20px;
+    margin-top: 40px;
+  }
+  
+  /* Botón de registro */
+  .register-button {
+    --color: #a0a0a0; /* Color gris claro */
+    font-size: 14px;
+  }
+  
+  .register-button strong {
+    color: #d6cf00; /* Color azul para el texto fuerte */
+  }
+  
+  /* Efecto hover para botones */
+  ion-button:hover {
+    opacity: 0.9;
+  }

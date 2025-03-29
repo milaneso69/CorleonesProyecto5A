@@ -1,0 +1,57 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Registro</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <form [formGroup]="registroForm" (ngSubmit)="guardarDatos()">
+    <div class="registro-container">
+      <ion-img src="assets/icon/logo.png" class="logo"></ion-img>
+    </div>
+    <ion-list>
+      <ion-item>
+        <ion-input label="Nombre" placeholder="Introduce tu nombre" formControlName="nombre"></ion-input>
+      </ion-item>
+      <ion-text color="danger" *ngIf="registroForm.get('nombre')?.invalid && registroForm.get('nombre')?.touched">
+        Nombre inválido. Solo se permiten letras y espacios.
+      </ion-text>
+
+
+      
+      
+      <ion-item>
+        <ion-input label="Email" type="email" placeholder="email@domain.com" formControlName="email"></ion-input>
+      </ion-item>
+      <ion-text color="danger" *ngIf="registroForm.get('email')?.invalid && registroForm.get('email')?.touched">
+        Ingresa un email válido.
+      </ion-text>
+      
+      <ion-item>
+        <ion-input label="Contraseña" type="password" placeholder="Introduce tu contraseña" formControlName="password"></ion-input>
+      </ion-item>
+      <ion-text color="danger" *ngIf="registroForm.get('password')?.invalid && registroForm.get('password')?.touched">
+        La contraseña debe tener al menos 8 caracteres.
+      </ion-text>
+
+      
+
+      <!-- Teléfono (Solo Números, 10 Dígitos) -->
+      <ion-item>
+        <ion-input label="Número de Teléfono" type="tel" placeholder="8888888888" formControlName="telefono"></ion-input>
+      </ion-item>
+      <ion-text color="danger" *ngIf="registroForm.get('telefono')?.invalid && registroForm.get('telefono')?.touched">
+        Ingresa un número de teléfono válido (10 dígitos, solo números).
+      </ion-text>
+
+    </ion-list>
+
+    <!-- Botón de Guardar -->
+    <ion-button type="submit" expand="block" [disabled]="registroForm.invalid">Guardar Datos</ion-button>
+
+  </form>
+
+  <!-- Botón de Salir -->
+  <ion-button routerLink="/login" expand="block" color="medium">Salir</ion-button>
+
+</ion-content>

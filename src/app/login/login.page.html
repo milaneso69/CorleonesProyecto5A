@@ -1,0 +1,63 @@
+<ion-header>
+</ion-header>
+
+<ion-content class="ion-padding" [fullscreen]="true">
+  <ion-img src="assets/icon/corleonesss-blanco.png" class="logo"></ion-img>
+  <div class="login-container">
+    
+    
+    <form (ngSubmit)="ingresar()" class="ion-margin-top">
+      <ion-label class="ion-text-center ion-margin-bottom">
+        <h1>Iniciar Sesión</h1>
+      </ion-label>
+      <ion-list>
+        <ion-item lines="full" class="ion-margin-bottom">
+          <ion-input 
+            type="email"
+            [(ngModel)]="email"
+            name="email"
+            required
+            autocomplete="email"
+            inputmode="email"
+            clearInput
+            labelPlacement="floating"
+            placeholder="ejemplo@dominio.com">  <!-- Placeholder añadido -->
+            <div slot="label">Correo Electrónico <ion-text color="danger">(Required)</ion-text></div>
+            <ion-icon slot="start" name="mail-outline"></ion-icon>
+          </ion-input>
+        </ion-item>
+      
+        <ion-item lines="full" class="ion-margin-bottom">
+          <ion-input 
+            type="password"
+            [(ngModel)]="password"
+            name="password"
+            required
+            autocomplete="current-password"
+            clearInput
+            labelPlacement="floating">
+            <div slot="label">Contraseña <ion-text color="danger">(Required)</ion-text></div>
+            <ion-icon slot="start" name="lock-closed-outline"></ion-icon>
+          </ion-input>
+        </ion-item>
+      </ion-list>
+
+      <ion-button 
+        type="submit" 
+        expand="block" 
+        fill="clear"
+        shape="round"
+        [disabled]="isLoading || !email || !password"
+        class="ion-margin-top login-button">
+        <ion-spinner *ngIf="isLoading" name="crescent"></ion-spinner>
+        <ion-text *ngIf="!isLoading">Ingresar</ion-text>
+      </ion-button>
+
+      <div class="ion-text-center ion-margin-top">
+        <ion-button (click)="irARegistro()" fill="clear" size="circle" class="register-button">
+          ¿No tienes cuenta? <strong> Regístrate</strong>
+        </ion-button>
+      </div>
+    </form>
+  </div>
+</ion-content>

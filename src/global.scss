@@ -1,0 +1,93 @@
+/*
+ * App Global CSS
+ * ----------------------------------------------------------------------------
+ * Put style rules here that you want to apply globally. These styles are for
+ * the entire app and not just one component. Additionally, this file can be
+ * used as an entry point to import other CSS/Sass files to be included in the
+ * output CSS.
+ * For more information on global stylesheets, visit the documentation:
+ * https://ionicframework.com/docs/layout/global-stylesheets
+ */
+
+/* Core CSS required for Ionic components to work properly */
+@import "@ionic/angular/css/core.css";
+
+/* Basic CSS for apps built with Ionic */
+@import "@ionic/angular/css/normalize.css";
+@import "@ionic/angular/css/structure.css";
+@import "@ionic/angular/css/typography.css";
+@import "@ionic/angular/css/display.css";
+
+/* Optional CSS utils that can be commented out */
+@import "@ionic/angular/css/padding.css";
+@import "@ionic/angular/css/float-elements.css";
+@import "@ionic/angular/css/text-alignment.css";
+@import "@ionic/angular/css/text-transformation.css";
+@import "@ionic/angular/css/flex-utils.css";
+
+/**
+ * Ionic Dark Mode
+ * -----------------------------------------------------
+ * For more info, please see:
+ * https://ionicframework.com/docs/theming/dark-mode
+ */
+@import "@ionic/angular/css/palettes/dark.always.css";
+/* @import "@ionic/angular/css/palettes/dark.class.css"; */
+//@import "@ionic/angular/css/palettes/dark.system.css";
+
+/* 🔹 Contenedor de botones con espacio adecuado */
+.button-container {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    margin: 15px 0;
+}
+
+/* 🔹 Botón cuadrado con tamaño fijo */
+.btn-fixed-size {
+    width: 70px;
+    height: 70px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 10px; /* Puedes cambiar a 50% si los quieres circulares */
+    background-color: var(--ion-color-primary);
+    color: white;
+    font-size: 16px;
+    font-weight: bold;
+}
+
+/* 🔹 Botones de acción (Agregar al carrito, Agendar cita) */
+.btn-action {
+    width: 180px;
+    text-align: center;
+    font-size: 14px;
+    font-weight: bold;
+    text-transform: uppercase;
+}
+
+/* 🔹 Ajustes en `ion-list` para mejor presentación */
+ion-list {
+    margin: 0;
+    padding: 0;
+}
+
+/* 🔹 Estilos para `ion-item` (elementos de listas) */
+ion-item {
+    --padding-start: 10px;
+    --padding-end: 10px;
+    border-bottom: 1px solid #ddd;
+}
+
+/* 🔹 Estilos para `ion-thumbnail` */
+ion-thumbnail img {
+    border-radius: 10px;
+    object-fit: cover;
+}
+
+/* 🔹 Estilos para `ion-badge` */
+ion-badge {
+    font-size: 14px;
+    font-weight: bold;
+    padding: 5px 10px;
+}

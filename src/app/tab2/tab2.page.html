@@ -1,0 +1,77 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>📦 Catálogo</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <!-- Buscador -->
+  <ion-searchbar [(ngModel)]="searchText" (ionInput)="filterItems()" placeholder="Buscar productos o servicios"></ion-searchbar>
+
+  <!-- Servicios -->
+  <ion-card>
+    <ion-card-content>
+      <ion-card-title>Servicios</ion-card-title>
+      <ion-card-subtitle>Servicios disponibles</ion-card-subtitle>
+
+      <ion-list>
+        <ion-item *ngFor="let servicio of filteredServicios">
+          <ion-thumbnail slot="start">
+            <img [src]="servicio.imagen" />
+          </ion-thumbnail>
+          <ion-label>
+            <h2>{{ servicio.nombre }}</h2>
+            <p>{{ servicio.descripcion }}</p>
+            <p>
+              <ion-badge color="danger">{{ servicio.precio | currency }}</ion-badge>
+            </p>
+          </ion-label>
+          <ion-button (click)="agendarCita()" color="success" layout="icon-top">
+            <ion-icon name="calendar-number-outline"></ion-icon>
+            <div>Cita</div>
+          </ion-button>
+        </ion-item>
+      </ion-list>
+    </ion-card-content>
+  </ion-card>
+
+  <!-- Productos -->
+  <ion-card>
+    <ion-card-content>
+      <ion-card-title>Productos</ion-card-title>
+      <ion-card-subtitle>Productos disponibles</ion-card-subtitle>
+      
+      <ion-list>
+        <ion-item *ngFor="let producto of filteredProductos">
+          <ion-thumbnail slot="start">
+            <img [src]="producto.imagen" />
+          </ion-thumbnail>
+          <ion-label>
+            <h2>{{ producto.nombre }}</h2>
+            <p>{{ producto.descripcion }}</p>
+            <p>
+              <ion-badge color="danger">{{ producto.precio | currency }}</ion-badge>
+            </p>
+          </ion-label>
+          <ion-button (click)="addToCart(producto)" color="primary">
+            <ion-icon name="cart-outline"></ion-icon>
+            <div>Agregar</div>
+          </ion-button>
+        </ion-item>
+      </ion-list>
+    </ion-card-content>
+  </ion-card>
+
+  <!-- Botones de Navegación -->
+  <div class="button-container">
+    <ion-button (click)="goToCart()" expand="full" color="warning">
+      <ion-icon slot="start" name="cart-outline"></ion-icon>
+      Carrito
+    </ion-button>
+
+    <ion-button routerLink="/tabs" expand="full" color="primary">
+      <ion-icon slot="start" name="return-up-back-outline"></ion-icon>
+      Regresar
+    </ion-button>
+  </div>
+</ion-content>

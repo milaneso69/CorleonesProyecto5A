@@ -1,0 +1,102 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>
+      INICIO
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <ion-header collapse="condense">
+    <ion-toolbar>
+      <ion-title size="large">Bienvenido 👋</ion-title>
+    </ion-toolbar>
+  </ion-header>
+
+  <div>
+    <ion-item>
+      <ion-label>Corleones Barber Shop</ion-label>
+    </ion-item>
+  </div>
+
+  <div class="button-container">
+    <ion-button routerLink="/tabs/tab2" shape="Servicios" class="btn-fixed-size" color="warning">
+      <ion-icon slot="icon-only" name="book-outline"></ion-icon> 
+    </ion-button>
+    
+    <ion-button routerLink="/carrito" shape ="carrito" class="btn-fixed-size" color="warning">
+      <ion-icon slot="icon-only" name="cart-outline"></ion-icon>
+    </ion-button> 
+    
+    <ion-button routerLink="/tabs/tab2" shape ="Catálogo" class="btn-fixed-size" color="warning">
+      <ion-icon slot="icon-only" name="calendar-outline"></ion-icon>
+    </ion-button>
+  </div>
+  
+  
+
+   <!-- Carrusel de Bootstrap -->
+   <div id="carouselExampleCaptions" class="carousel slide" data-bs-ride="carousel">
+    <div class="carousel-indicators">
+      <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+      <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="1" aria-label="Slide 2"></button>
+      <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="2" aria-label="Slide 3"></button>
+    </div>
+    <div class="carousel-inner">
+      <div class="carousel-item active">
+        <img src="https://ionicframework.com/docs/img/demos/card-media.png" class="d-block w-100" alt="Barbería">
+        <div class="carousel-caption d-none d-md-block">
+          <h5>Estilo Profesional</h5>
+          <p>Los mejores cortes con los mejores barberos.</p>
+        </div>
+      </div>
+      <div class="carousel-item">
+        <img src="https://ionicframework.com/docs/img/demos/card-media.png" class="d-block w-100" alt="Corte de pelo">
+        <div class="carousel-caption d-none d-md-block">
+          <h5>Atención Premium</h5>
+          <p>Servicios de barbería de alta calidad.</p>
+        </div>
+      </div>
+      <div class="carousel-item">
+        <img src="https://ionicframework.com/docs/img/demos/card-media.png" class="d-block w-100" alt="Grooming">
+        <div class="carousel-caption d-none d-md-block">
+          <h5>Experiencia Única</h5>
+          <p>Relájate y disfruta de un gran servicio.</p>
+        </div>
+      </div>
+    </div>
+    <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="prev">
+      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+      <span class="visually-hidden">Previous</span>
+    </button>
+    <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="next">
+      <span class="carousel-control-next-icon" aria-hidden="true"></span>
+      <span class="visually-hidden">Next</span>
+    </button>
+  </div>
+
+  
+  <div class="story-list">
+    <div class="scroll-horizontal">
+      <div class="scroll-item">
+        <ion-grid>
+          <ion-row>
+            <ion-col> <!-- Debe abrirse correctamente -->
+            
+            </ion-col> <!-- Se cierra aquí correctamente -->
+
+          </ion-row>
+        </ion-grid>
+      </div>
+    </div>
+  </div>
+
+  <ion-label>
+  Corleones Barber Shop se encuentra en:
+
+  
+  </ion-label>
+
+
+ 
+</ion-content>
