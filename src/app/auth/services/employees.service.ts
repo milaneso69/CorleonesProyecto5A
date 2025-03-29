@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { Observable } from 'rxjs';
+import { Observable } from 'rxjs'; 
+import { environment } from '../../../environments/environment';
 
 interface Employees {
   idempleado: number;
@@ -11,6 +12,8 @@ interface Employees {
   telefono: number;
   nss: number;
   rfc: string;
+  correo: string;
+  contrasenia: string;
   created_at: string;
   updated_at: string;
 }
@@ -20,7 +23,7 @@ interface Employees {
 })
 export class EmployeesService {
 
-  private apiURL = 'http://10.0.179.59:3000/api/employees';
+  private apiURL = `${environment.api.baseUrl}/api/employees`;
   constructor(private http: HttpClient) { }
 
   getEmployees(): Observable<Employees[]> {

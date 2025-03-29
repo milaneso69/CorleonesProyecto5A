@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
+import { environment } from '../../../environments/environment';
 
 interface Services {
   idservicio: number;
@@ -16,7 +17,7 @@ interface Services {
 })
 export class ServicesService {
 
-  private apiURL = 'http://10.0.179.59:3000/api/services';
+  private apiURL = `${environment.api.baseUrl}/api/services`;
     constructor(private http: HttpClient) { }
   
     getServices(): Observable<Services[]> {

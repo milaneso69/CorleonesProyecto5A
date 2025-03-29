@@ -1,0 +1,87 @@
+<app-headermenu></app-headermenu>
+
+<section id="content">
+    <br />
+    <h1 style="text-align: center;">Lista de Productos</h1>
+    <button id="btnAgregar" class="btnAgregar" (click)="openAddModal()">
+      <i class='bx bx-user-plus'></i> Agregar Producto
+    </button>
+
+    <div class="table-container">
+        <table>
+          <thead>
+            <tr>
+              <th>Nombre</th>
+              <th>Precio</th>
+              <th>Descripción</th>
+              <th>STOCK</th>
+              <th>Fecha de Creación</th>
+              <th>Ultima Modificación</th>
+              <th>Acciones</th>
+            </tr>
+          </thead>
+          <tbody id="tablaProductos">
+            <tr *ngFor="let product of products">
+            <td>{{ product.nombre }}</td>
+            <td>{{ product.precio }}</td>
+            <td>{{ product.descripcion }}</td>
+            <td>{{ product.stock }}</td>
+            <td>{{ product.created_at | date }}</td>
+            <td>{{ product.updated_at | date }}</td>
+            <td>
+                <button (click)="openEditModal(product)"><i class='bx bx-edit'></i></button>
+                <button (click)="openDeleteModal(product)"><i class='bx bx-trash'></i></button>
+              </td>
+            </tr>
+            <tr *ngIf="products.length === 0">
+                <td colspan="7" class="no-data">No hay Productos Disponibles</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+<!-- Modal para agregar/editar producto -->
+<div id="modal" class="modal" *ngIf="showAddModal || showEditModal">
+    <div class="modal-contenido">
+      <span (click)="showAddModal ? closeAddModal() : closeEditModal()" class="cerrar">&times;</span>
+      <h2>{{ showAddModal ? 'Agregar Producto' : 'Editar Producto' }}</h2>
+      <form [formGroup]="productsForm" (ngSubmit)="showAddModal ? addProducts() : updateProducts()">
+        <label for="nombre">Nombre:</label>
+        <input type="text" id="nombre" formControlName="nombre" required placeholder="Ingrese el Nombre" (keypress)="onKeyPress($event)" maxlength="50"/>
+        <span *ngIf="productsForm.get('nombre')?.invalid && productsForm.get('nombre')?.touched" class="error-message">
+          El Nombre es obligatorio
+        </span>
+        <span *ngIf="productsForm.get('nombre')?.errors?.['soloLetras']">Solo se permiten letras y espacios</span>
+        <label for="precio">Precio:</label>
+        <input type="text" id="precio" formControlName="precio" required placeholder="Ingrese el Precio" (keypress)="soloNumeros($event)" (input)="limitarLongitud($event, 10)"/>
+        <span *ngIf="productsForm.get('precio')?.invalid && productsForm.get('precio')?.touched" class="error-message">
+          El Precio es obligatorio
+        </span>
+        <label for="descripcion">Descripcion:</label>
+        <input type="text" id="descripcion" formControlName="descripcion" required placeholder="Ingrese la Descripcion del Producto" maxlength="50"/>
+        <span *ngIf="productsForm.get('descripcion')?.invalid && productsForm.get('descripcion')?.touched" class="error-message">
+          La Descripcion es obligatorio
+        </span>
+        <label for="stock">STOCK:</label>
+        <input type="text" id="stock" formControlName="stock" required placeholder="Ingrese el STOCK" (keypress)="soloNumeros($event)" (input)="limitarLongitud($event, 10)"/>
+        <span *ngIf="productsForm.get('stock')?.invalid && productsForm.get('stock')?.touched" class="error-message">
+          El STOCK es obligatorio
+        </span>
+        <button type="submit">
+          <i class="bx bx-save"></i> {{ showAddModal ? 'Guardar' : 'Actualizar' }}
+        </button>
+      </form>
+    </div>
+  </div>
+
+    <!-- Modal de confirmación para eliminar producto -->
+<div id="modalConfirmacion" class="modal" *ngIf="showDeleteModal">
+    <div class="modal-contenido">
+      <p>¿Quieres eliminar este producto?</p>
+      <button class="btnEliminar" (click)="deleteProducts()">
+        <i class="bx bx-trash"></i> Eliminar
+      </button>
+      <button (click)="closeDeleteModal()">Cancelar</button>
+    </div>
+  </div>
+</section>

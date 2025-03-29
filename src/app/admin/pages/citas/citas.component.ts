@@ -1,12 +1,16 @@
 import { Component, OnInit } from '@angular/core';
-import { AppointmentsService } from '../../../services/appointments.service';
+import { AppointmentsService } from '../../../auth/services/appointments.service';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { soloLetrasValidator, soloLetras, soloNumerosValidator } from '../../../validations/validators';
+import { soloLetrasValidator, soloLetras, soloNumerosValidator, dominioEspecificoValidator } from '../../../validations/validators';
 
 interface Appointments {
   idcita: number;
-  idcliente: number;
-  idservicio: number;
+  nombre: string;
+  appaterno: string;
+  apmaterno: string;
+  correo: string;
+  telefono: number;
+  servicio: string;
   fechaagendada: string;
   created_at: string;
   updated_at: string;
@@ -36,11 +40,24 @@ export class CitasComponent implements OnInit {
 
      initForm(appointments?: Appointments) {
                this.appointmentsForm = this.fb.group({
-                idcliente: [appointments?.idcliente || '', [Validators.required, soloNumerosValidator(10)]],
-                idservicio: [appointments?.idservicio || '', [Validators.required, soloNumerosValidator(10)]],
+                nombre: [appointments?.nombre || '', [Validators.required, Validators.maxLength(40), soloLetrasValidator()]],
+                appaterno: [appointments?.appaterno || '', [Validators.required, Validators.maxLength(40), soloLetrasValidator()]],
+                apmaterno: [appointments?.apmaterno || '', [Validators.required, Validators.maxLength(40), soloLetrasValidator()]],
+                correo: [appointments?.correo || '', [Validators.required, Validators.email, Validators.maxLength(60) , dominioEspecificoValidator('@gmail.com')]],
+                telefono: [appointments?.telefono || '', [Validators.required, soloNumerosValidator(10)]],
+                servicio: [appointments?.nombre || '', [Validators.required, Validators.maxLength(50), soloLetrasValidator()]],
                 fechaagendada: [appointments?.fechaagendada || '', [Validators.required, Validators.maxLength(20)]],
                });
              }
+
+      validarCorreo(): void {
+      const correoControl = this.appointmentsForm.get('correo');
+      if (correoControl?.invalid) {
+        console.log('Correo inválido');
+      } else {
+        console.log('Correo válido');
+      }
+    }
 
   // Usa la función para evitar la entrada de números
   onKeyPress(event: KeyboardEvent): boolean {
@@ -88,8 +105,12 @@ export class CitasComponent implements OnInit {
 
   private transformAppointmentData(data: any): any {
     return {
-      IdCliente: data.idcliente,
-      IdServicio: data.idservicio, 
+      Nombre: data.nombre, 
+      ApPaterno: data.appaterno,
+      ApMaterno: data.apmaterno,
+      Correo: data.correo,
+      Telefono: data.telefono, 
+      Servicio: data.servicio, 
       FechaAgendada: data.fechaagendada,
     };
   }

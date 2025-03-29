@@ -146,8 +146,13 @@ tr:hover {
 
 .modal-contenido input[type="text"],
 .modal-contenido input[type="number"],
+.modal-contenido input[type="tel"],
+.modal-contenido input[type="url"],
 .modal-contenido input[type="date"],
+.modal-contenido input[type="month"],
+.modal-contenido input[type="week"],
 .modal-contenido input[type="time"],
+.modal-contenido input[type="datetime-local"],
 .modal-contenido input[type="password"],
  .modal-contenido input[type="radio"],
  .modal-contenido input[type="checkbox"],

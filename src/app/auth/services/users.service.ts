@@ -1,6 +1,8 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
+import { AuthService } from './auth.service'; 
+import { environment } from '../../../environments/environment';
 
 interface Users {
   idusuario: number;
@@ -9,18 +11,23 @@ interface Users {
   created_at: string;
   updated_at: string;
 }
+
 @Injectable({
   providedIn: 'root'
 })
 export class UsersService {
-  private apiURL = 'http://192.168.1.68:3000/api/users';
-  constructor(private http: HttpClient) { }
+  private apiURL = `${environment.api.baseUrl}/api/users`;
+
+  constructor(
+    private http: HttpClient,
+    private authService: AuthService, 
+  ) { }
 
   getUsers(): Observable<Users[]> {
     return this.http.get<Users[]>(this.apiURL);
   }
 
-   getUsersById(id: number): Observable<Users> {
+  getUsersById(id: number): Observable<Users> {
     return this.http.get<Users>(`${this.apiURL}/${id}`);
   }
 

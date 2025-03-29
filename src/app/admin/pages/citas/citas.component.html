@@ -21,9 +21,9 @@
         </thead>            
         <tbody id="tablaCitas">
             <tr *ngFor="let appointment of appointments">
-                <td>{{ appointment.idcliente }}</td>
-                <td>{{ appointment.idservicio }}</td>
-                <td>{{ appointment.fechaagendada }}</td>
+                <td>{{ appointment.nombre }}</td>
+                <td>{{ appointment.servicio }}</td>
+                <td>{{ appointment.fechaagendada | date: 'dd/MM/yyyy HH:mm' }}</td>
                 <td>{{ appointment.created_at | date }}</td>
                 <td>{{ appointment.updated_at | date }}</td>
                 <td>
@@ -44,16 +44,40 @@
       <span (click)="showAddModal ? closeAddModal() : closeEditModal()" class="cerrar">&times;</span>
       <h2>{{ showAddModal ? 'Agregar Cita' : 'Editar Cita' }}</h2>
       <form [formGroup]="appointmentsForm" (ngSubmit)="showAddModal ? addAppointments() : updateAppointments()">
-        <label for="idcliente">ID Cliente:</label>
-        <input type="text" id="idcliente" formControlName="idcliente" required placeholder="Ingrese el ID del cliente" (keypress)="soloNumeros($event)" (input)="limitarLongitud($event, 10)"/>
-        <span *ngIf="appointmentsForm.get('idcliente')?.invalid && appointmentsForm.get('idcliente')?.touched" class="error-message">
-          El ID es obligatorio
-        </span>
-        <label for="idservicio">ID Servicio:</label>
-        <input type="text" id="idservicio" formControlName="idservicio" required placeholder="Ingrese el ID del servicio" (keypress)="soloNumeros($event)" (input)="limitarLongitud($event, 10)"/>
-        <span *ngIf="appointmentsForm.get('idservicio')?.invalid && appointmentsForm.get('idservicio')?.touched" class="error-message">
-          El ID es obligatorio
-        </span>
+        <label for="nombre">Nombre:</label>
+      <input type="text" id="nombre" formControlName="nombre" required placeholder="Ingrese el Nombre" (keypress)="onKeyPress($event)" maxlength="40"/>
+      <span *ngIf="appointmentsForm.get('nombre')?.invalid && appointmentsForm.get('nombre')?.touched" class="error-message">
+        El Nombre es obligatorio
+      </span>
+      <span *ngIf="appointmentsForm.get('nombre')?.errors?.['soloLetras']">Solo se permiten letras y espacios</span>
+      <label for="appaterno">Apellido Paterno:</label>
+      <input type="text" id="appaterno" formControlName="appaterno" required placeholder="Ingrese el Apellido Paterno" (keypress)="onKeyPress($event)"  maxlength="40"/>
+      <span *ngIf="appointmentsForm.get('appaterno')?.invalid && appointmentsForm.get('appaterno')?.touched" class="error-message">
+        El Apellido Paterno es obligatorio
+      </span>
+      <span *ngIf="appointmentsForm.get('appaterno')?.errors?.['soloLetras']">Solo se permiten letras y espacios</span>
+      <label for="apmaterno">Apellido Materno:</label>
+      <input type="text" id="apmaterno" formControlName="apmaterno" required placeholder="Ingrese el Apellido Materno" (keypress)="onKeyPress($event)"  maxlength="40"/>
+      <span *ngIf="appointmentsForm.get('apmaterno')?.invalid && appointmentsForm.get('apmaterno')?.touched" class="error-message">
+        El Apellido Materno es obligatorio
+      </span>
+      <span *ngIf="appointmentsForm.get('apmaterno')?.errors?.['soloLetras']">Solo se permiten letras y espacios</span>
+      <label for="correo">Correo:</label>
+      <input type="email" id="correo" formControlName="correo" required placeholder="Ingrese el Correo" (input)="validarCorreo()" maxlength="60"/>
+      <span *ngIf="appointmentsForm.get('correo')?.invalid && appointmentsForm.get('correo')?.touched" class="error-message">
+        El Correo es obligatorio
+      </span>
+      <label for="telefono">Telefono:</label>
+      <input type="text" id="telefono" formControlName="telefono" required placeholder="Ingrese el Telefono" (keypress)="soloNumeros($event)" (input)="limitarLongitud($event, 10)"/>
+      <span *ngIf="appointmentsForm.get('telefono')?.invalid && appointmentsForm.get('telefono')?.touched" class="error-message">
+        El Telefono es obligatorio
+      </span>
+      <label for="servicio">Servicio:</label>
+      <input type="text" id="servicio" formControlName="servicio" required placeholder="Ingrese el Nombre" (keypress)="onKeyPress($event)" maxlength="40"/>
+      <span *ngIf="appointmentsForm.get('servicio')?.invalid && appointmentsForm.get('servicio')?.touched" class="error-message">
+        El Servicio es obligatorio
+      </span>
+      <span *ngIf="appointmentsForm.get('nombre')?.errors?.['soloLetras']">Solo se permiten letras y espacios</span>
         <label for="fechaagendada">Fecha Agendada:</label>
         <input type="datetime-local" id="fechaagendada" formControlName="fechaagendada" (keypress)="onKeyPress($event)"  maxlength="20"/>
         <span *ngIf="appointmentsForm.get('fechaagendada')?.invalid && appointmentsForm.get('fechaagendada')?.touched" class="error-message">

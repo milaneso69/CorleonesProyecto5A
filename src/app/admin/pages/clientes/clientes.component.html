@@ -69,10 +69,15 @@
       <span *ngIf="clientsForm.get('telefono')?.invalid && clientsForm.get('telefono')?.touched" class="error-message">
         El Telefono es obligatorio
       </span>
-      <label for="idusuario">ID Usuario:</label>
-      <input type="text" id="idusuario" formControlName="idusuario" required placeholder="Ingrese el ID del Usuario" (keypress)="soloNumeros($event)" (input)="limitarLongitud($event, 10)"/>
-      <span *ngIf="clientsForm.get('idusuario')?.invalid && clientsForm.get('idusuario')?.touched" class="error-message">
-        El ID es obligatorio
+      <label for="correo">Correo:</label>
+      <input type="email" id="correo" formControlName="correo" required placeholder="Ingrese el Correo" (input)="validarCorreo()" maxlength="60"/>
+      <span *ngIf="clientsForm.get('correo')?.invalid && clientsForm.get('correo')?.touched" class="error-message">
+        El Correo es obligatorio
+      </span>
+      <label for="contrasenia">Contraseña:</label>
+      <input type="password" id="contrasenia" formControlName="contrasenia" required placeholder="Ingrese la Contraseña" maxlength="255"/>
+      <span *ngIf="clientsForm.get('contrasenia')?.invalid && clientsForm.get('contrasenia')?.touched" class="error-message">
+        La Contraseña es obligatorio
       </span>
       <button type="submit">
         <i class="bx bx-save"></i> {{ showAddModal ? 'Guardar' : 'Actualizar' }}

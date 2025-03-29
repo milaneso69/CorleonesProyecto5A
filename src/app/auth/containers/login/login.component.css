@@ -1,0 +1,228 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', sans-serif;
+}
+
+body {
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: linear-gradient(135deg, #1a1a1a 0%, #2d2d2d 100%);
+}
+
+.login-container {
+    perspective: 1000px;
+    animation: appear 0.5s ease-out;
+}
+
+.login-box {
+    background: #2d2d2d;
+    padding: 2.5rem;
+    border-radius: 20px;
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2);
+    transform-style: preserve-3d;
+    width: 400px;
+    transition: transform 0.3s;
+}
+
+.login-header {
+    text-align: center;
+    margin-bottom: 2rem;
+}
+
+.login-header h1 {
+    color: #ffffff;
+    font-size: 2.2rem;
+    margin-bottom: 0.5rem;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.login-header p {
+    color: #ffffff;
+}
+
+.input-group {
+    margin: 1.5rem 0;
+    position: relative;
+}
+
+.input-group input {
+    width: 100%;
+    padding: 1rem 0;
+    border: none;
+    background: transparent;
+    border-bottom: 2px solid #e2e8f0;
+    font-size: 1rem;
+    color: #ffffff;
+    transition: all 0.3s ease;
+}
+
+.input-group input:focus,
+.input-group input:valid {
+    outline: none;
+    border-bottom-color: #ffffff;
+}
+
+.input-group label {
+    position: absolute;
+    left: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    color: #ffffff;
+    pointer-events: none;
+    transition: all 0.3s ease;
+}
+
+.input-group input:focus ~ label,
+.input-group input:valid ~ label {
+    top: -5px;
+    font-size: 0.8rem;
+    color: #ffffff;
+}
+
+button {
+    width: 100%;
+    padding: 1rem;
+    background: #ff0000;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+button:hover {
+    background: #a70d0d;
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+}
+
+.login-footer {
+    margin-top: 1.5rem;
+    text-align: center;
+}
+
+.login-footer a {
+    color: #ffffff;
+    text-decoration: none;
+    font-size: 0.9rem;
+    display: block;
+    margin: 0.5rem 0;
+    transition: color 0.3s ease;
+}
+
+.login-footer a:hover {
+    color: #ffffff;
+}
+
+@keyframes appear {
+    from {
+        opacity: 0;
+        transform: translateY(20px) scale(0.9);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
+}
+
+@media (max-width: 480px) {
+    .login-box {
+        width: 90%;
+        padding: 1.5rem;
+    }
+}
+
+.logo-img {
+    max-height: 90px;
+    animation: ocean-wave 8s ease-in-out infinite;
+    transform-origin: 50% 50%; /* Pivote desde el centro */
+    will-change: transform; /* Optimización para mejor rendimiento */
+}
+
+@keyframes ocean-wave {
+    0% {
+        transform: 
+            perspective(1000px) 
+            rotateY(0deg)
+            rotateX(0deg)
+            skewY(0deg);
+    }
+    10% {
+        transform: 
+            perspective(1000px) 
+            rotateY(4deg)
+            rotateX(1deg)
+            skewY(-1deg);
+    }
+    20% {
+        transform: 
+            perspective(1000px) 
+            rotateY(-2deg)
+            rotateX(-0.5deg)
+            skewY(0.5deg);
+    }
+    30% {
+        transform: 
+            perspective(1000px) 
+            rotateY(5deg)
+            rotateX(1.5deg)
+            skewY(-1.5deg);
+    }
+    40% {
+        transform: 
+            perspective(1000px) 
+            rotateY(-3deg)
+            rotateX(-1deg)
+            skewY(1deg);
+    }
+    50% {
+        transform: 
+            perspective(1000px) 
+            rotateY(6deg)
+            rotateX(2deg)
+            skewY(-2deg);
+    }
+    60% {
+        transform: 
+            perspective(1000px) 
+            rotateY(-4deg)
+            rotateX(-1.5deg)
+            skewY(1.5deg);
+    }
+    70% {
+        transform: 
+            perspective(1000px) 
+            rotateY(3deg)
+            rotateX(1deg)
+            skewY(-1deg);
+    }
+    80% {
+        transform: 
+            perspective(1000px) 
+            rotateY(-1deg)
+            rotateX(-0.5deg)
+            skewY(0.5deg);
+    }
+    90% {
+        transform: 
+            perspective(1000px) 
+            rotateY(2deg)
+            rotateX(0.5deg)
+            skewY(-0.5deg);
+    }
+    100% {
+        transform: 
+            perspective(1000px) 
+            rotateY(0deg)
+            rotateX(0deg)
+            skewY(0deg);
+    }
+}

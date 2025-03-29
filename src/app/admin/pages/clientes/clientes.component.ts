@@ -1,15 +1,16 @@
 import { Component, OnInit } from '@angular/core';
-import { ClientsService } from '../../../services/clients.service';
+import { ClientsService } from '../../../auth/services/clients.service';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { soloLetrasValidator, soloLetras, soloNumerosValidator } from '../../../validations/validators';
+import { soloLetrasValidator, soloLetras, soloNumerosValidator, dominioEspecificoValidator } from '../../../validations/validators';
 
 interface Clients {
   idcliente: number;
-  idusuario: number;
   nombre: string;
   appaterno: string;
   apmaterno: string;
   telefono: number;
+  correo: string;
+  contrasenia: string;
   created_at: string;
   updated_at: string;
 }
@@ -38,12 +39,22 @@ export class ClientesComponent implements OnInit {
 
     initForm(clients?: Clients) {
       this.clientsForm = this.fb.group({
-        idusuario: [clients?.idusuario || '', [Validators.required, soloNumerosValidator(10)]],
         nombre: [clients?.nombre || '', [Validators.required, Validators.maxLength(40), soloLetrasValidator()]],
         appaterno: [clients?.appaterno || '', [Validators.required, Validators.maxLength(40), soloLetrasValidator()]],
         apmaterno: [clients?.apmaterno || '', [Validators.required, Validators.maxLength(40), soloLetrasValidator()]],
         telefono: [clients?.telefono || '', [Validators.required, soloNumerosValidator(10)]],
+        correo: [clients?.correo || '', [Validators.required, Validators.email, Validators.maxLength(60) , dominioEspecificoValidator('@gmail.com')]],
+        contrasenia: [clients?.contrasenia || '', [Validators.required, Validators.maxLength(255)]],
       });
+    }
+
+    validarCorreo(): void {
+      const correoControl = this.clientsForm.get('correo');
+      if (correoControl?.invalid) {
+        console.log('Correo inválido');
+      } else {
+        console.log('Correo válido');
+      }
     }
 
   // Usa la función para evitar la entrada de números
@@ -92,11 +103,12 @@ export class ClientesComponent implements OnInit {
   
     private transformClientData(data: any): any {
       return {
-        IdUsuario: data.idusuario,
         Nombre: data.nombre, 
         ApPaterno: data.appaterno,
         ApMaterno: data.apmaterno,
         Telefono: data.telefono, 
+        Correo: data.correo, 
+        Contrasenia: data.contrasenia, 
       };
     }
 

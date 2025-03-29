@@ -10,6 +10,8 @@ import { CitasComponent } from './admin/pages/citas/citas.component';
 import { LandingComponent } from './landing/landing.component';
 import { LoginComponent } from './auth/containers/login/login.component';
 import { RegisterComponent } from './auth/containers/register/register.component';
+import { ProductosComponent } from './admin/pages/productos/productos.component';
+import { VentasComponent } from './admin/pages/ventas/ventas.component';
 
 const routes: Routes = [
   {
@@ -56,6 +58,14 @@ const routes: Routes = [
   {
     path: 'citas',
     component: CitasComponent,
+  },
+  {
+    path: 'productos',
+    component: ProductosComponent,
+  },
+  {
+    path: 'ventas',
+    component: VentasComponent,
   }
 ];
 

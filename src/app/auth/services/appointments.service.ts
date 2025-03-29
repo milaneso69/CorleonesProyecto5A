@@ -1,11 +1,17 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
+import { environment } from '../../../environments/environment';
+
 
 interface Appointments {
   idcita: number;
-  idcliente: number;
-  idservicio: number;
+  nombre: string;
+  appaterno: string;
+  apmaterno: string;
+  correo: string;
+  telefono: number;
+  servicio: string;
   fechaagendada: string;
   created_at: string;
   updated_at: string;
@@ -16,7 +22,7 @@ interface Appointments {
 })
 export class AppointmentsService {
 
-  private apiURL = 'http://10.0.179.59:3000/api/appointments';
+  private apiURL = `${environment.api.baseUrl}/api/appointments`;
     constructor(private http: HttpClient) { }
 
         getAppointments(): Observable<Appointments[]> {

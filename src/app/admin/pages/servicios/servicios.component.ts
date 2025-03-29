@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ServicesService } from '../../../services/services.service';
+import { ServicesService } from '../../../auth/services/services.service';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { soloLetrasValidator, soloLetras, soloNumerosValidator } from '../../../validations/validators';
 

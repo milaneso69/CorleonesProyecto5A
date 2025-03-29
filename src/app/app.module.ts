@@ -17,6 +17,8 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { EmpleadosComponent } from './admin/pages/empleados/empleados.component';
 import { ServiciosComponent } from './admin/pages/servicios/servicios.component';
 import { CitasComponent } from './admin/pages/citas/citas.component';
+import { ProductosComponent } from './admin/pages/productos/productos.component';
+import { VentasComponent } from './admin/pages/ventas/ventas.component';
 
 @NgModule({
   declarations: [
@@ -31,7 +33,9 @@ import { CitasComponent } from './admin/pages/citas/citas.component';
     LandingComponent,
     EmpleadosComponent,
     ServiciosComponent,
-    CitasComponent
+    CitasComponent,
+    ProductosComponent,
+    VentasComponent
   ],
   imports: [
     BrowserModule,
@@ -42,7 +46,7 @@ import { CitasComponent } from './admin/pages/citas/citas.component';
     ReactiveFormsModule
   ],
   providers: [
-    provideClientHydration(withEventReplay())
+    provideClientHydration(withEventReplay()),
   ],
   bootstrap: [AppComponent]
 })

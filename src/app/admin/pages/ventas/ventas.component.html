@@ -1,0 +1,79 @@
+<app-headermenu></app-headermenu>
+
+<section id="content">
+    <br />
+    <h1 style="text-align: center;">Lista de Ventas</h1>
+    <button id="btnAgregar" class="btnAgregar" (click)="openAddModal()">
+      <i class='bx bx-user-plus'></i> Agregar Venta
+    </button>
+
+    <div class="table-container">
+        <table>
+          <thead>
+            <tr>
+              <th>Cliente</th>
+              <th>Fecha Venta</th>
+              <th>Total</th>
+              <th>Fecha de Creación</th>
+              <th>Ultima Modificación</th>
+              <th>Acciones</th>
+            </tr>
+          </thead>
+          <tbody id="tablaVentas">
+            <tr *ngFor="let sale of sales">
+            <td>{{ sale.cliente }}</td>
+            <td>{{ sale.fechaventa | date: 'dd/MM/yyyy HH:mm' }}</td>
+            <td>{{ sale.total }}</td>
+            <td>{{ sale.created_at | date }}</td>
+            <td>{{ sale.updated_at | date }}</td>
+            <td>
+                <button (click)="openEditModal(sale)"><i class='bx bx-edit'></i></button>
+                <button (click)="openDeleteModal(sale)"><i class='bx bx-trash'></i></button>
+              </td>
+            </tr>
+            <tr *ngIf="sales.length === 0">
+                <td colspan="6" class="no-data">No hay Ventas Disponibles</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+    <!-- Modal para agregar/editar venta -->
+<div id="modal" class="modal" *ngIf="showAddModal || showEditModal">
+    <div class="modal-contenido">
+      <span (click)="showAddModal ? closeAddModal() : closeEditModal()" class="cerrar">&times;</span>
+      <h2>{{ showAddModal ? 'Agregar Venta' : 'Editar Venta' }}</h2>
+      <form [formGroup]="salesForm" (ngSubmit)="showAddModal ? addSales() : updateSales()">
+        <label for="cliente">Cliente:</label>
+      <input type="text" id="cliente" formControlName="cliente" required placeholder="Ingrese el Cliente" (keypress)="onKeyPress($event)" maxlength="40"/>
+      <span *ngIf="salesForm.get('cliente')?.invalid && salesForm.get('cliente')?.touched" class="error-message">
+        El Cliente es obligatorio
+      </span>
+        <label for="fechaventa">Fecha Venta:</label>
+        <input type="datetime-local" id="fechaventa" formControlName="fechaventa" (keypress)="onKeyPress($event)"  maxlength="20"/>
+        <span *ngIf="salesForm.get('fechaagendada')?.invalid && salesForm.get('fechaventa')?.touched" class="error-message">
+          La Fecha es obligatorio
+        </span>
+        <label for="total">Total:</label>
+        <input type="text" id="total" formControlName="total" required placeholder="Ingrese el Total" (keypress)="soloNumeros($event)" (input)="limitarLongitud($event, 10)"/>
+        <span *ngIf="salesForm.get('total')?.invalid && salesForm.get('total')?.touched" class="error-message">
+          El Total es obligatorio
+        </span>
+        <button type="submit">
+          <i class="bx bx-save"></i> {{ showAddModal ? 'Guardar' : 'Actualizar' }}
+        </button>
+      </form>
+    </div>
+  </div>
+
+    <!-- Modal de confirmación para eliminar venta -->
+<div id="modalConfirmacion" class="modal" *ngIf="showDeleteModal">
+    <div class="modal-contenido">
+      <p>¿Quieres eliminar esta venta?</p>
+      <button class="btnEliminar" (click)="deleteSales()">
+        <i class="bx bx-trash"></i> Eliminar
+      </button>
+      <button (click)="closeDeleteModal()">Cancelar</button>
+    </div>
+  </div>
+</section>

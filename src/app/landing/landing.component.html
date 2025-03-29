@@ -7,6 +7,7 @@
         <ul class="nav-links">
             <li><a href="#inicio">Inicio</a></li>
             <li><a href="#servicios">Servicios</a></li>
+            <li><a href="#productos">Productos</a></li>
             <li><a href="#citas">Citas</a></li>
             <li><a href="#contacto">Contacto</a></li>
             <li><a routerLink="/login">Login</a></li>
@@ -62,6 +63,122 @@
                 <span class="price">Precio: 200$</span>
             </div>
         </div>
+    </div>
+</section>
+
+<!-- Producto -->
+<section id="productos" class="products">
+    <div class="container">
+        <h1 class="title">Nuestros Productos</h1>
+        <br>
+        <div class="product-grid">
+            <!-- Producto 1 -->
+            <div class="product-card">
+                <div class="badge">Nuevo</div>
+                <div class="product-image">
+                    <svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+                        <rect width="200" height="200" fill="#f8f9fa"/>
+                        <circle cx="100" cy="70" r="40" fill="#6c757d"/>
+                        <rect x="60" y="120" width="80" height="60" fill="#adb5bd"/>
+                    </svg>
+                </div>
+                <div class="product-info">
+                    <h3>Cámara Profesional</h3>
+                    <div class="rating">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star-half-alt"></i>
+                        <span>4.5</span>
+                    </div>
+                    <p class="price">$599.99</p>
+                    <p class="description">Cámara digital de alta resolución con múltiples funciones profesionales.</p>
+                    <button class="btn-details">Ver detalles</button>
+                </div>
+            </div>
+            
+            <!-- Producto 2 -->
+            <div class="product-card">
+                <div class="badge sale">-20%</div>
+                <div class="product-image">
+                    <svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+                        <rect width="200" height="200" fill="#f8f9fa"/>
+                        <rect x="40" y="40" width="120" height="120" rx="10" fill="#495057"/>
+                        <rect x="60" y="70" width="80" height="60" fill="#e9ecef"/>
+                    </svg>
+                </div>
+                <div class="product-info">
+                    <h3>Laptop Ultradelgada</h3>
+                    <div class="rating">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <span>5.0</span>
+                    </div>
+                    <p class="price"><span class="original-price">$1299.99</span> $999.99</p>
+                    <p class="description">Potente laptop con procesador de última generación y pantalla de alta definición.</p>
+                    <button class="btn-details">Ver detalles</button>
+                </div>
+            </div>
+            <!-- Producto 3-->
+            <div class="product-card">
+                <div class="badge sale">Oferta</div>
+                <div class="product-image">
+                    <svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+                        <rect width="200" height="200" fill="#f8f9fa"/>
+                        <rect x="50" y="40" width="100" height="120" rx="5" fill="#343a40"/>
+                        <rect x="70" y="60" width="60" height="80" fill="#adb5bd"/>
+                    </svg>
+                </div>
+                <div class="product-info">
+                    <h3>Tableta Gráfica</h3>
+                    <div class="rating">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star-half-alt"></i>
+                        <i class="far fa-star"></i>
+                        <span>3.5</span>
+                    </div>
+                    <p class="price">$249.99</p>
+                    <p class="description">Tableta para diseñadores profesionales con sensibilidad a la presión y precisión absoluta.</p>
+                    <button class="btn-details">Ver detalles</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!--Cita-->
+<section id="citas" class="appointment">
+    <div class="content appointment">
+    <h1 class="title">Aparta tu cita</h1>
+    <form action="" class="appoin-form">
+        <div class="input-wrapper">
+            <input type="text" name="Nombre" placeholder="Nombre completo" required class="input-field">
+            <input type="email" name="Correo" placeholder="Correo electronico" required class="input-field">
+        </div>
+        <div class="input-wrapper">
+            <input type="number" name="Telefono" placeholder="Numero telefonico" required class="input-field">
+            <select name="categoria" class="input-field">
+            <option value="Selecciona una categoria">Selecciona una categoria</option>
+            <option value="Corte">Corte de cabello</option>
+            <option value="Barba">Perfilado de barba</option>
+            <option value="producto">Cera Para cabello</option>
+            <option value="Limpieza">Limpieza facial</option>
+        </select>
+        </div>
+        <div class="input-wrapper date-time">
+            <input type="date" name="fecha" required class="input-field date">
+            <input type="time" name="Hora" required class="input-field time">
+        </div>
+        <button type="submit" class="form-btn">
+            <span class="span">Agendar cita</span>
+        </button>
+        </form>
     </div>
 </section>
 

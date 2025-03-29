@@ -40,7 +40,7 @@ export class LandingComponent implements OnInit, AfterViewInit {
   }
 
   private initializeAnimation(): void {
-    const elements = this.el.nativeElement.querySelectorAll('.title, .servicio-card, .title2');
+    const elements = this.el.nativeElement.querySelectorAll('.title, .servicio-card, .title2, .products h2, .product-card');
     elements.forEach((element: Element) => {
       if (element instanceof HTMLElement) {
         element.style.opacity = '0';
@@ -51,7 +51,7 @@ export class LandingComponent implements OnInit, AfterViewInit {
   }
 
   private animateOnScroll(): void {
-    const elements = this.el.nativeElement.querySelectorAll('.title, .servicio-card, .title2');
+    const elements = this.el.nativeElement.querySelectorAll('.title, .servicio-card, .title2, .products h2, .product-card');
     const windowHeight = window.innerHeight;
     
     elements.forEach((element: Element) => {

@@ -1,17 +1,18 @@
 import { Component, OnInit } from '@angular/core';
-import { EmployeesService } from '../../../services/employees.service';
+import { EmployeesService } from '../../../auth/services/employees.service';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { soloLetrasValidator, soloLetras, soloNumerosValidator } from '../../../validations/validators';
+import { soloLetrasValidator, soloLetras, soloNumerosValidator, dominioEspecificoValidator } from '../../../validations/validators';
 
 interface Employees {
   idempleado: number;
-  idusuario: number;
   nombre: string;
   appaterno: string;
   apmaterno: string;
   telefono: number;
   nss: number;
   rfc: string;
+  correo: string;
+  contrasenia: string;
   created_at: string;
   updated_at: string;
 }
@@ -40,14 +41,24 @@ export class EmpleadosComponent implements OnInit {
 
     initForm(employees?: Employees) {
       this.employeesForm = this.fb.group({
-        idusuario: [employees?.idusuario || '', [Validators.required, soloNumerosValidator(10)]],
         nombre: [employees?.nombre || '', [Validators.required, Validators.maxLength(40), soloLetrasValidator()]],
         appaterno: [employees?.appaterno || '', [Validators.required, Validators.maxLength(40), soloLetrasValidator()]],
         apmaterno: [employees?.apmaterno || '', [Validators.required, Validators.maxLength(40), soloLetrasValidator()]],
         telefono: [employees?.telefono || '', [Validators.required, soloNumerosValidator(10)]],
         nss: [employees?.nss || '', [Validators.required, soloNumerosValidator(11)]],
         rfc: [employees?.rfc || '', [Validators.required, Validators.maxLength(13)]],
+        correo: [employees?.correo || '', [Validators.required, Validators.email, Validators.maxLength(60) , dominioEspecificoValidator('@gmail.com')]],
+        contrasenia: [employees?.contrasenia || '', [Validators.required, Validators.maxLength(255)]],
       });
+    }
+
+    validarCorreo(): void {
+      const correoControl = this.employeesForm.get('correo');
+      if (correoControl?.invalid) {
+        console.log('Correo inválido');
+      } else {
+        console.log('Correo válido');
+      }
     }
 
   // Usa la función para evitar la entrada de números
@@ -96,13 +107,14 @@ export class EmpleadosComponent implements OnInit {
 
   private transformEmployeeData(data: any): any {
     return {
-      IdUsuario: data.idusuario,
       Nombre: data.nombre, 
       ApPaterno: data.appaterno,
       ApMaterno: data.apmaterno,
       Telefono: data.telefono,
       NSS: data.nss,
       RFC: data.rfc, 
+      Correo: data.correo, 
+      Contrasenia: data.contrasenia,
     };
   }
 
